@@ -2,6 +2,7 @@
 
     数据服务 —— 写个 SQL 即可发布成 API
 ### [在线演示地址](http://47.111.102.84:8080/project/ohmydata/#/login)
+    admin/123456
 ### 运行
 
 ```
