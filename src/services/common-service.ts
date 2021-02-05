@@ -6,11 +6,6 @@ export default class CommonService extends BaseService {
     public adminServer: string = "";
     public server: string = "";
 
-    @serviceHandler({ title: "获取当前用户信息" })
-    public getCurrentUser() {
-        return this._get<any>(`${this.securityServer}/unity/user/composite`);
-    }
-
     @serviceHandler({ title: "查询枚举" })
     public async getEnumByType(type: string) {
         return this._get<any>(`${this.server}/free/display/${type}`);

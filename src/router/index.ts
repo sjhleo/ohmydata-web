@@ -128,13 +128,12 @@ router.beforeEach((to, from, next) => {
     let title = to.meta.title || "";
     NProgress.start();
     window.document.title = title;
-    next();
-    // if (!Cookies.get("access_token") && to.name !== "login") {
-    //     // 判断是否已经登录且前往的页面不是登录页
-    //     next({ name: "login" });
-    // } else {
-    //     next();
-    // }
+    if (!Cookies.get("access_token") && to.name !== "login") {
+        // 判断是否已经登录且前往的页面不是登录页
+        next({ name: "login" });
+    } else {
+        next();
+    }
 });
 router.afterEach(() => {
     NProgress.done();

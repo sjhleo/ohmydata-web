@@ -12,7 +12,7 @@ import { appRouter } from "@/router";
 @Component({
     template: require("./index.html"),
     components: {
-        "u-setting": Setting,
+        "u-setting": Setting
     }
 })
 export default class MainView extends Vue {
@@ -32,10 +32,8 @@ export default class MainView extends Vue {
         window.location.href = "index.html";
     }
     public async created() {
-        let result = await this.service.getCurrentUser();
-        if (result && !result.hasError) {
-            this.$store.commit("user/save", result.result);
-        }
+        let user = JSON.parse(sessionStorage.getItem("user") || "");
+        this.$store.commit("user/save", user);
     }
     public get breadcrumbItems() {
         let list = this.$route.matched;
@@ -51,7 +49,9 @@ export default class MainView extends Vue {
             this.$store.commit("tag/add", tag);
         }
         this.activeTagId = tag.id as string;
-        this.active = this.menuList.find(v => this.$route.path.startsWith("/" + v.path))?.name;
+        this.active = this.menuList.find(v =>
+            this.$route.path.startsWith("/" + v.path)
+        )?.name;
     }
     public get cacheList() {
         let list = this.tagList
