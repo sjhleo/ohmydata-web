@@ -1,0 +1,10 @@
+// @import "~codemirror/theme/ambiance.css";
+@import "~codemirror/lib/codemirror.css";
+@import "~codemirror/addon/hint/show-hint.css";
+.code-editor {
+    @include size();
+    textarea,
+    .CodeMirror {
+        @include size();
+    }
+}

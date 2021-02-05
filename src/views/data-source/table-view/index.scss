@@ -1,0 +1,119 @@
+@charset "UTF-8";
+.u-table {
+    @include size();
+    @include flex(column, center, flex-end);
+    padding: 0.2rem;
+    padding-bottom: 0.1rem;
+    background: white;
+    overflow: hidden;
+    flex: 1;
+
+    .split {
+        @include size();
+        flex: 1;
+    }
+
+    .result-content,
+    .query-panel-content {
+        @include flex(column, flex-start, flex-end);
+        @include size();
+        overflow: hidden;
+    }
+    // .query-panel-content {
+    //     // min-height: 1rem;
+    // }
+
+    section > header {
+        @include size(100%, unset);
+        @include flex(row, space-between, center);
+        padding: 0.1rem 0;
+        > .title {
+            font-size: 0.16rem;
+            color: #656e7f;
+            position: relative;
+            padding-left: 0.2rem;
+        }
+        > .title::before {
+            content: "";
+            display: inline-block;
+            @include size(0.06rem, 0.18rem);
+            background: #4586f1;
+            border-radius: 3px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .rest {
+            display: flex;
+            .export-btn {
+                @include flex(row, center, center);
+                cursor: pointer;
+                user-select: none;
+                margin-left: 0.2rem;
+            }
+
+            .export-btn:active {
+                opacity: 0.8;
+            }
+
+            .export-btn::before {
+                content: "";
+                display: inline-block;
+                @include size(0.18rem, 0.18rem);
+                @include bg-img("~@/assets/images/data-source/export.png");
+                margin-right: 0.05rem;
+            }
+        }
+    }
+
+    .table-content {
+        flex: 1;
+        width: 100%;
+        overflow: hidden;
+        .ivu-table-body .ivu-tooltip {
+            width: 100%;
+            overflow: hidden;
+            .row {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                display: inline-block;
+                width: 100%;
+            }
+        }
+    }
+
+    .table-g .ivu-table .ivu-table-body {
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+
+    .action-icon {
+        @include size(0.16rem, 0.16rem);
+        @include bg-img("~@/assets/images/data-source/detail.png");
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+    }
+    .action-icon:active {
+        opacity: 0.8;
+    }
+    .ivu-split-trigger {
+        height: 0;
+        width: calc(100% - 4px);
+        transform: translate(2px, -1px);
+        border-bottom: 0;
+        .ivu-split-trigger-bar-con {
+            display: none;
+        }
+    }
+    .ivu-page {
+        margin-top: 0.1rem;
+    }
+}
+.ivu-tooltip-inner.ivu-tooltip-inner-with-width {
+    max-height: 20vh;
+    overflow: auto;
+}

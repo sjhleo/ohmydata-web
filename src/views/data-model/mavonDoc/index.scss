@@ -1,0 +1,9 @@
+@charset "UTF-8";
+.v-mavon-container {
+    @include size();
+    overflow: hidden;
+    > .v-note-wrapper {
+        overflow: scroll;
+        height: 100%;
+    }
+}

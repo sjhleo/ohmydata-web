@@ -1,0 +1,53 @@
+@keyframes v-error-500-icon-animation
+{
+    0%
+    {
+        transform: rotateZ(0deg);
+    }
+    20%
+    {
+        transform: rotateZ(-10deg);
+    }
+    40%
+    {
+        transform: rotateZ(5deg);
+    }
+    60%
+    {
+        transform: rotateZ(-5deg);
+    }
+    80%
+    {
+        transform: rotateZ(10deg);
+    }
+    100%
+    {
+        transform: rotateZ(0deg);
+    }
+}
+
+.v-error-500
+{
+    &-icon
+    {
+        position: relative;
+        display: inline-block;
+        width: 170px;
+        height: 170px;
+        margin-right: 10px;
+        border-radius: 50%;
+        border: 20px solid #ed3f14;
+        color: #ed3f14;
+        
+        i
+        {
+            position: absolute;
+            display: inline-block;
+            left: 10px;
+            bottom: -10px;
+            font-size: 120px;
+            transform-origin: center bottom;
+            animation: v-error-500-icon-animation 3s ease 0s infinite alternate;
+        }
+    }
+}

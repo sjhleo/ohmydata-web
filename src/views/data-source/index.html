@@ -1,0 +1,57 @@
+<article class="data-source">
+    <i-split v-model="split" min="180px" max="800px">
+        <section slot="left" class="data-source-list">
+            <div class="tree-header">
+                <div class="title">数据源列表</div>
+                <div
+                    class="add-data-source"
+                    @click.stop="onAddDataSource"
+                    title="添加数据源"
+                ></div>
+            </div>
+            <u-list
+                :data-source-list="dataSourceList"
+                @on-select="onTableNodeSelect"
+                @on-detail-database="onDetailDatabase"
+                @on-edit-database="onEditDatabase"
+                @on-delete-database="onDeleteDatabase"
+                @on-sql-database="onSqlDatabase"
+                @on-view-table="onViewTableField"
+                @on-delete-table="onDeleteTable"
+            >
+            </u-list>
+        </section>
+        <section v-if="message" slot="right" class="info">
+            <div class="info-content">
+                {{message && message || ""}}
+            </div>
+        </section>
+        <section v-else slot="right" class="table-view-content">
+            <u-table-view
+                :data="data"
+                :columns="tableColumns"
+                :loading="loadingTableData"
+                :paging="paging"
+                @on-filter="onFilter"
+                @on-change="onPageChange"
+                @on-page-size-change="onPageSizeChange"
+                @on-export-all="onExportAll"
+            ></u-table-view>
+        </section>
+    </i-split>
+
+    <u-add-modal
+        :visible.sync="showAddDatabase"
+        v-model="updataDataSource"
+        :typeList="typeList"
+        @refresh="initTree"
+    ></u-add-modal>
+    <u-detail-modal
+        :visible.sync="showDetailDatabase"
+        :data="dataSourceDetail"
+    ></u-detail-modal>
+    <u-table-fields-modal
+        :visible.sync="showTableFilds"
+        :data="tableFields"
+    ></u-table-fields-modal>
+</article>

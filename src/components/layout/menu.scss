@@ -1,0 +1,21 @@
+.side-menu-wrapper {
+    > .ivu-menu {
+        height: 100%;
+        background-color: #414757;
+    }
+    .ivu-menu-item {
+        display: flex;
+        align-items: center;
+        font-size: 0.16rem;
+        background: #525a6e;
+        color: white !important;
+    }
+    .ivu-menu-item-active {
+        background: #2d8cf0 !important;
+    }
+    .common-menu-icon {
+        @include size(0.2rem, 0.2rem);
+        position: relative;
+        display: inline-block;
+    }
+}

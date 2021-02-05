@@ -1,0 +1,67 @@
+.data-source-tree {
+    .common-menu-icon {
+        content: "";
+        margin-right: 0.1rem;
+        @include size(0.16rem, 0.16rem);
+        position: relative;
+        display: inline-block;
+    }
+    .ivu-icon-data-source {
+        &:before {
+            @extend .common-menu-icon;
+            @include bg-img("~@/assets/images/data-source/database.png");
+        }
+    }
+    .ivu-icon-table {
+        &:before {
+            @extend .common-menu-icon;
+            @include size(0.12rem, 0.13rem);
+            margin-top: 0.05rem;
+            @include bg-img("~@/assets/images/data-source/table.png");
+        }
+    }
+    .ivu-icon-view {
+        &:before {
+            @extend .common-menu-icon;
+            @include bg-img("~@/assets/images/data-source/view.png");
+        }
+    }
+    .ivu-icon-edit {
+        &:before {
+            @extend .common-menu-icon;
+            @include bg-img("~@/assets/images/data-source/edit.png");
+        }
+    }
+    .ivu-icon-delete {
+        &:before {
+            @extend .common-menu-icon;
+            @include bg-img("~@/assets/images/data-source/delete.png");
+        }
+    }
+    .ivu-icon-sql {
+        &:before {
+            @extend .common-menu-icon;
+            @include bg-img("~@/assets/images/data-source/sql.png");
+        }
+    }
+    .ivu-tree-title {
+        .oprate-icon {
+            display: none;
+            vertical-align: 0;
+        }
+        &:hover {
+            .oprate-icon {
+                display: inline-block;
+                font-size: 0.2rem;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+.oprate-menu {
+    @extend .data-source-tree;
+}
+
+// .ivu-tooltip-popper {
+//     // transform: translateX(30px);
+// }

@@ -1,0 +1,47 @@
+<div class="v-parameter-list-container">
+    <main class="parameter-list-main">
+        <i-table class="diy-table" :columns="columns" :data="data">
+            <div slot="name" slot-scope="{row}">
+                <i-input v-if="row.isEdit" v-model="row.name">{{row.name}}</i-input>
+                <span v-else>{{row.name}}</span>
+            </div>
+            <div slot="type" slot-scope="{row}">
+                <i-select v-if="row.isEdit" v-model="row.type">
+                    <i-option v-for="item in typeList" :value="item.name" :key="item.name">{{item.text}}</i-option>
+                </i-select>
+                <span v-else>{{getTypeText(row.type)}}</span>
+            </div>
+            <div slot="location" slot-scope="{row}">
+                <i-select v-if="row.isEdit" v-model="row.location">
+                    <i-option v-for="item in locationList" :value="item.name" :key="item.name">{{item.text}}</i-option>
+                </i-select>
+                <span v-else>{{getLocationText(row.location)}}</span>
+            </div>
+            <div slot="required" slot-scope="{row}">
+                <i-select v-if="row.isEdit" :value="booleanObj[row.required]" @on-change="onChangeRequired($event, row)">
+                    <i-option :value=0 key="0">否</i-option>
+                    <i-option :value=1 key="1">是</i-option>
+                </i-select>
+                <span v-else>{{row.required}}</span>
+            </div>
+            <div slot="defaultValue" slot-scope="{row}">
+                <i-input  v-if="row.isEdit"  v-model="row.defaultValue"></i-input>
+                <span v-else>{{row.defaultValue}}</span>
+            </div>
+            <div slot="description" slot-scope="{row}">
+                <i-input v-if="row.isEdit" v-model="row.description"></i-input>
+                <span v-else>{{row.description}}</span>
+            </div>
+            <div slot="actions" slot-scope="{row,index}">
+                <div v-if="row.isEdit" class="edit-status">
+                    <div class="confirm-icon" title="确认" @click="onConfirm(row, index)"></div>
+                    <div class="cancel-icon" title="取消" @click="onCancel(index)"></div>
+                </div>
+                <div v-else class="read-status">
+                    <div class="edit-icon" title="编辑" @click="onEdit(row)"></div>
+                    <div class="delete-icon" title="删除" @click="onDelete"></div>
+                </div>
+            </div>
+        </i-table>
+    </main>
+</div>

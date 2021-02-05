@@ -1,0 +1,95 @@
+@charset "UTF-8";
+.u-filter {
+    @include size();
+    @include flex(column, flex-start, flex-start);
+    overflow: hidden;
+    padding: 0.1rem;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    position: relative;
+
+    &-content {
+        @include size();
+        overflow-y: scroll;
+        flex: 1;
+    }
+    .add-rule {
+        display: inline-block;
+        @include size(20px, 20px);
+        background: linear-gradient(135deg, #f4f4f4, #dadada);
+        border-radius: 2px;
+        vertical-align: middle;
+        text-align: center;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .action-text-content {
+        @include flex(row, flex-start, center);
+    }
+
+    .action-text {
+        cursor: pointer;
+        user-select: none;
+        margin-top: 0.05rem;
+        font-size: 0.14rem;
+        margin-right: 0.1rem;
+        @include flex(row, center, center);
+    }
+    .action-text:active {
+        opacity: 0.8;
+    }
+    .apply::before {
+        content: "";
+        display: inline-block;
+        @include size(14px, 14px);
+        @include bg-img("~@/assets/images/data-source/apply.png");
+        margin: 0 0.08rem;
+    }
+
+    .clear::before {
+        content: "";
+        display: inline-block;
+        @include size(14px, 14px);
+        @include bg-img("~@/assets/images/data-source/reset.png");
+        margin: 0 0.08rem;
+    }
+
+    .u-select {
+        display: inline-block;
+        width: unset;
+        .ivu-select-selection {
+            border: 0;
+            .ivu-select-selected-value {
+                padding-right: 8px;
+            }
+            > div {
+                min-width: 8px;
+                > .ivu-select-placeholder,
+                > .ivu-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .blue {
+        color: #57a3f3;
+    }
+
+    .ivu-select-visible .ivu-select-selection {
+        // box-shadow: 0 0 0 2px rgba(45, 140, 240, 0.2);
+        box-shadow: unset;
+    }
+
+    .ivu-select-selected-value:hover,
+    .ivu-poptip .ivu-poptip-rel:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    i:last-child {
+        cursor: pointer;
+    }
+}

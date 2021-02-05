@@ -1,0 +1,36 @@
+<div class="v-parameter-list-container">
+    <main class="parameter-list-main">
+        <i-table class="diy-table" :columns="columns" :data="data">
+            <div slot="name" slot-scope="{row}">
+                <i-input v-if="row.isEdit" v-model="row.name">{{row.name}}</i-input>
+                <span v-else>{{row.name}}</span>
+            </div>
+            <div slot="type" slot-scope="{row}">
+                <i-select v-if="row.isEdit" v-model="row.type">
+                    <i-option v-for="item in typeList" :value="item.name" :key="item.name">{{item.text}}</i-option>
+                </i-select>
+                <span v-else>{{getTypeText(row.type)}}</span>
+            </div>
+            <div slot="convertType" slot-scope="{row}">
+                <i-select v-if="row.isEdit" v-model="row.convertType">
+                    <i-option v-for="item in convertList" :value="item.name" :key="item.name">{{item.text}}</i-option>
+                </i-select>
+                <span v-else>{{getConverTypeText(row.convertType)}}</span>
+            </div>
+            <div slot="convertValue" slot-scope="{row}">
+                <i-input v-if="row.isEdit" v-model="row.convertValue">{{row.convertValue}}</i-input>
+                <span v-else>{{row.convertValue}}</span>
+            </div>
+            <div slot="actions" slot-scope="{row,index}">
+                <div v-if="row.isEdit" class="edit-status">
+                    <div class="confirm-icon" title="确认" @click="onConfirm(row, index)"></div>
+                    <div class="cancel-icon" title="取消" @click="onCancel(index)"></div>
+                </div>
+                <div v-else class="read-status">
+                    <div class="edit-icon" title="编辑" @click="onEdit(row)"></div>
+                    <div class="delete-icon" title="删除" @click="onDelete"></div>
+                </div>
+            </div>
+        </i-table>
+    </main>
+</div>

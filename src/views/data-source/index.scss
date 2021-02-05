@@ -1,0 +1,66 @@
+.data-source {
+    @include size();
+    // display: flex;
+    background: white;
+    overflow: hidden;
+    &-list {
+        @include size();
+        display: flex;
+        flex-direction: column;
+        // min-width: 180px;
+        padding: 0.15rem;
+        background: white;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .tree-header {
+        @include flex(row, space-between, center);
+        font-size: 0.16rem;
+        padding-bottom: 0.1rem;
+        font-weight: 600;
+        .title {
+            flex: 1;
+        }
+        &:before {
+            content: "";
+            @include size(0.06rem, 0.18rem);
+            display: inline-block;
+            background: #4586f1;
+            border-radius: 0.03rem;
+            vertical-align: text-bottom;
+            margin-right: 0.1rem;
+        }
+    }
+
+    .add-data-source {
+        @include size(0.2rem, 0.2rem);
+        @include bg-img("~@/assets/images/data-source/addDataBase.png");
+        cursor: pointer;
+    }
+
+    section.info {
+        @include size();
+        @include flex(column, center, center);
+        flex: 1;
+        font-size: 24px;
+        color: #868fa6;
+        user-select: none;
+    }
+    section.info::before {
+        content: "";
+        display: inline-block;
+        @include size(3.02rem, 1.99rem);
+        @include bg-img("~@/assets/images/data-source/error.png");
+        margin-bottom: 0.4rem;
+    }
+
+    .table-view-content {
+        @include size();
+    }
+
+    .ivu-split-trigger.ivu-split-trigger-vertical {
+        opacity: 0;
+        transform: translateX(-0.17rem);
+    }
+}

@@ -1,0 +1,119 @@
+.data-source-select {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #d8d8d8;
+    padding: 0.1rem;
+    ::-webkit-scrollbar {
+        width: 1px;
+    }
+    > main {
+        flex: 1;
+        overflow: scroll;
+        margin-top: 0.1rem;
+    }
+    .data-source-item {
+        &-content,
+        .table-item {
+            display: flex;
+            align-items: center;
+            line-height: 0.32rem;
+            font-size: 0.14rem;
+            cursor: pointer;
+            &:hover {
+                background-color: #eaf4fe;
+            }
+            &.active {
+                background-color: #eaf4fe;
+            }
+            > p {
+                flex: 1;
+            }
+        }
+        &-content {
+            font-size: 0.16rem;
+            font-weight: 550;
+            .ivu-icon-ios-more {
+                font-size: 0.2rem;
+                margin-right: 0.08rem;
+                display: none;
+            }
+            &:hover {
+                .ivu-icon-ios-more {
+                    display: inherit;
+                }
+            }
+        }
+        .table-item {
+            padding-left: 0.3rem;
+            width: 100%;
+            .ivu-icon-ios-more {
+                font-size: 0.2rem;
+                margin-right: 0.08rem;
+                display: none;
+            }
+            &:hover {
+                .ivu-icon-ios-more {
+                    display: inherit;
+                }
+            }
+        }
+        .ivu-icon-md-arrow-dropright,
+        .ivu-icon-md-arrow-dropdown {
+            font-size: 0.2rem;
+            cursor: pointer;
+            margin-right: 0.05rem;
+        }
+    }
+    .vue-recycle-scroller {
+        max-height: 4rem;
+    }
+    .common-menu-icon {
+        content: "";
+        margin-right: 0.1rem;
+        @include size(0.16rem, 0.16rem);
+        position: relative;
+        display: inline-block;
+    }
+    .ivu-icon-data-source {
+        &:before {
+            @extend .common-menu-icon;
+            @include bg-img("~@/assets/images/data-source/database.png");
+        }
+    }
+    .ivu-icon-table {
+        &:before {
+            @extend .common-menu-icon;
+            @include size(0.12rem, 0.13rem);
+            @include bg-img("~@/assets/images/data-source/table.png");
+        }
+    }
+    .ivu-icon-view {
+        &:before {
+            @extend .common-menu-icon;
+            @include bg-img("~@/assets/images/data-source/view.png");
+        }
+    }
+    .ivu-icon-edit {
+        &:before {
+            @extend .common-menu-icon;
+            @include bg-img("~@/assets/images/data-source/edit.png");
+        }
+    }
+    .ivu-icon-delete {
+        &:before {
+            @extend .common-menu-icon;
+            @include bg-img("~@/assets/images/data-source/delete.png");
+        }
+    }
+    .ivu-icon-sql {
+        &:before {
+            @extend .common-menu-icon;
+            @include bg-img("~@/assets/images/data-source/sql.png");
+        }
+    }
+}
+.oprate-menu {
+    @extend .data-source-select;
+}

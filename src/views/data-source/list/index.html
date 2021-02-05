@@ -1,0 +1,86 @@
+<article class="data-source-select">
+    <header>
+        <i-input
+            class="search-input"
+            suffix="ios-search"
+            :placeholder="placeholder"
+            @on-change="onFilter"
+            v-model="keyword"
+        />
+    </header>
+    <main>
+        <div
+            v-for="item in showData"
+            :key="item.id"
+            class="data-source-item"
+            @click="onClickDataSource(item)"
+        >
+            <div class="data-source-item-content">
+                <i-icon type="md-arrow-dropdown" v-if="item.expand" />
+                <i-icon type="md-arrow-dropright" v-else />
+                <i-icon type="data-source"></i-icon>
+                <p>{{item.title}}</p>
+                <i-dropdown
+                    transfer
+                    transfer-class-name="oprate-menu"
+                    @on-click="onHandleDatabase($event, item)"
+                >
+                    <i-icon type="ios-more"></i-icon>
+                    <i-dropdown-menu slot="list">
+                        <i-dropdown-item name="detail">
+                            <i-icon type="view"></i-icon>
+                            <span>查看详情</span>
+                        </i-dropdown-item>
+                        <i-dropdown-item name="edit"
+                            ><i-icon type="edit"></i-icon>
+                            <span>编辑数据源</span></i-dropdown-item
+                        >
+                        <i-dropdown-item name="delete"
+                            ><i-icon type="delete"></i-icon>
+                            <span>删除数据源</span></i-dropdown-item
+                        >
+                        <i-dropdown-item name="sql"
+                            ><i-icon type="sql"></i-icon>
+                            <span>SQL控制台</span></i-dropdown-item
+                        >
+                    </i-dropdown-menu>
+                </i-dropdown>
+            </div>
+            <div class="tables">
+                <dynamic-scroller
+                    v-show="item.expand && item.loaded"
+                    :items="item.children"
+                    :minItemSize="30"
+                    item-height="30"
+                    content-tag="div"
+                >
+                    <div
+                        class="table-item"
+                        slot-scope="table"
+                        @click.stop="onSelect(table.item)"
+                    >
+                        <i-icon type="table"></i-icon>
+                        <p>{{table.item.title}}</p>
+                        <i-dropdown
+                            transfer
+                            transfer-class-name="oprate-menu"
+                            @on-click="onHandleTable($event, table)"
+                        >
+                            <i-icon type="ios-more"></i-icon>
+                            <i-dropdown-menu slot="list">
+                                <i-dropdown-item name="view">
+                                    <i-icon type="view"></i-icon>
+                                    <span>查看详情</span>
+                                </i-dropdown-item>
+                                <i-dropdown-item name="delete"
+                                    ><i-icon type="delete"></i-icon>
+                                    <span>删除表</span></i-dropdown-item
+                                >
+                            </i-dropdown-menu>
+                        </i-dropdown>
+                    </div>
+                </dynamic-scroller>
+            </div>
+        </div>
+    </main>
+</article>

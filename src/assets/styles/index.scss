@@ -1,0 +1,27 @@
+@import "~view-design/dist/styles/iview.css";
+@import "~nprogress/nprogress.css";
+@import "~vue-virtual-scroller/dist/vue-virtual-scroller.css";
+@import "./iview";
+
+html,
+body {
+    @include size();
+    overflow: hidden;
+}
+#app {
+    @include size();
+    // position: absolute;
+    .v-container,
+    .single-page-con,
+    .single-page {
+        @include size();
+    }
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}

@@ -1,0 +1,82 @@
+<i-modal class="u-add-database" v-model="show" :title="isEdit?'编辑数据源':'添加数据源'" width="550" class-name="modal-diy" transfer footer-hide>
+    <article class="content">
+        <i-form ref="addSourceform" :model="data" :rules="rules" :inline="false" label-position="top">
+            <i-form-item label="数据源名称:" prop="name">
+                <i-input v-model.trim="data.name" placeholder="请填写数据源名称"></i-input>
+            </i-form-item>
+            <i-form-item label="描述:" prop="description">
+                <i-input v-model.trim="data.description" placeholder="请对改数据源进行描述"></i-input>
+            </i-form-item>
+            <i-form-item label="数据源类型:" prop="type">
+                <i-select v-model.trim="data.type" placeholder="请选择数据源类型" transfer>
+                    <i-option v-for="item in typeList" :value="item.name" :key="item.text">{{item.text}}</i-option>
+                </i-select>
+            </i-form-item>
+            <i-form-item label="数据源连接:" prop="url">
+                <i-tooltip class="url-help" content="查看格式" placement="top" theme="light">
+                    <div :class="['help-img', {'active': showHelp}]" @click="showHelp = !showHelp">?</div>
+                </i-tooltip>
+                <div v-if="showHelp" class="help-info">
+                    <div>请按以下格式输入数据源连接：</div>
+                    <div>
+                        <div>MySQL：</div>
+                        <div>jdbc:mysql://{IP}:{端口号}/{数据源名称}</div>
+                    </div>
+                    <div>
+                        <div>Oracle：</div>
+                        <div>jdbc:oracle:thin:@{IP}:{端口号}:{数据源名称}</div>
+                    </div>
+                    <div>
+                        <div>Postgresql：</div>
+                        <div>jdbc:postgresql://{IP}:{端口号}:{数据源名称}</div>
+                    </div>
+                    <div>
+                        <div>MongoDB：</div>
+                        <div>jdbc:mongodb://{IP}:{端口号}:{数据源名称}</div>
+                    </div>
+                    <div>
+                        <div>IotDB：</div>
+                        <div>jdbc:iotdb://{IP}:{端口号}</div>
+                    </div>
+                    <div>
+                        <div>Elasticsearch：</div>
+                        <div>jdbc:es://http://{IP}:{端口号}</div>
+                    </div>
+                </div>
+                <i-input v-model.trim="data.url" placeholder="请输入数据源连接"></i-input>
+            </i-form-item>
+            <i-form-item label="用户名:" prop="user">
+                <i-input v-model.trim="data.user" placeholder="请输入用户名" autocomplete="off"></i-input>
+            </i-form-item>
+            <i-form-item label="密码:" prop="password">
+                <i-input v-model.trim="data.password" type="password" password placeholder="请输入用户名密码" autocomplete="new-password"></i-input>
+            </i-form-item>
+            <i-form-item>
+                <span>连接测试:</span>
+                <span v-if="checkingResult === true" class="success">连接成功</span>
+                <span v-if="checkingResult === false" class="failed">连接失败</span>
+                <span class="action-text" @click="onCheck">{{checkingResult === false? "点击重测" : "点击测试"}}</span>
+                <i-icon v-if="checking" class="icon-load" type="ios-loading" />
+                <div>
+                    <i-button type="primary" @click="onChangeSetting">
+                        高级设置
+                        <i-icon v-if="advance" type="md-remove" />
+                        <i-icon v-else type="md-add" />
+                    </i-button>
+                </div>
+            </i-form-item>
+            <template v-if="advance">
+                <i-form-item label="最小空闲连接数:" prop="minIdle">
+                    <i-input-number v-model="data.minIdle" :max="10" :min="1" :precision="0"></i-input-number>
+                </i-form-item>
+                <i-form-item label="最大连接数:" prop="maxPoolSize">
+                    <i-input-number v-model="data.maxPoolSize" :max="10" :min="1" :precision="0"></i-input-number>
+                </i-form-item>
+            </template>
+        </i-form>
+    </article>
+    <div class="bts">
+        <i-button type="primary" :loading="saving" @click="onConfirm">确定</i-button>
+        <i-button type="text" @click="onCancel">取消</i-button>
+    </div>
+</i-modal>

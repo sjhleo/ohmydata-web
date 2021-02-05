@@ -1,0 +1,32 @@
+<article class="u-filter">
+    <section class="u-filter-content">
+        <div v-if="data.length" v-for="(item,index) in data" :key="index">
+            <i-checkbox v-model="item.select"></i-checkbox>
+
+            <i-select transfer class="u-select blue" v-model="item.name">
+                <i-option v-for="(name, index) in fieldNameList" :value="name" :key="index">{{ name }}</i-option>
+            </i-select>
+
+            <i-select transfer class="u-select" v-model="item.operate">
+                <i-option v-for="(operate, index) in operateList" :value="operate.value" :key="index">
+                    {{ operate.label }}</i-option>
+            </i-select>
+
+            <i-poptip v-show="item.operate !== 'IS_NOT_NULL' && item.operate !== 'IS_NULL'" placement="bottom-start"
+                width="400" transfer>
+                <span class="blue">{{item.value || "&lt;?&gt;"}}</span>
+                <div slot="content">
+                    <i-input v-model="item.value"></i-input>
+                </div>
+            </i-poptip>
+            <span v-if="index < data.length - 1">&nbsp;and</span>
+            <div v-if="index === data.length - 1" class="add-rule" title="增加规则" @click="onAddCondition(index)">+</div>
+        </div>
+        <div v-if="!data.length" class="add-rule" title="增加规则" @click="onAddCondition(-1)">+</div>
+        <!-- <i-icon  type="ios-add-circle-outline" title="增加规则" @click.native="onAddCondition(-1)" /> -->
+    </section>
+    <section class="action-text-content">
+        <span class="action-text apply" @click="onApply">执行</span>
+        <span class="action-text clear" @click="onClear">清空</span>
+    </section>
+</article>

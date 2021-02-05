@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/* --------------------------------------------
+1、 表格
+---------------------------------------------*/
+.diy-table {
+    @include size();
+    border: none;
+    .ivu-table {
+        background-color: unset;
+        height: 100%;
+        font-size: 0.14rem;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        color: #515A6E;
+        .ivu-table-header {
+            table th {
+                @include font(0.14rem, 600);
+                background: #ddebf5;
+                height: 0.5rem;
+                min-width: 130px;
+                .ivu-table-cell-sort {
+                    word-break: keep-all;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        .ivu-table-body {
+            overflow-y: scroll;
+            // overflow-x: hidden;
+            height: calc(100% - 0.55rem);
+            table {
+                // border-spacing: 0 0.12rem;
+                tr {
+                    height: 0.5rem;
+                    &:nth-child(2n) {
+                        background: #ddebf5;
+                    }
+                    &:nth-child(2n-1) {
+                        background: #fff;
+                    }
+                }
+                td {
+                    border: none;
+                    background-color: unset;
+                }
+            }
+        }
+    }
+    .ivu-table:before {
+        height: 0;
+    }
+}
+
+/* --------------------------------------------
+            * 修改spin加载动画样式 *
+---------------------------------------------*/
+.ivu-spin {
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    .spin-icon-load {
+        animation: ani-demo-spin 1s linear infinite;
+
+        &:after {
+            content: url("~@/assets/images/loading.png");
+            background-size: 50px 50px;
+            width: 50px;
+            height: 50px;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+<article class="u-table">
+    <i-split v-model="split" mode="vertical" class="split" min="0">
+        <section slot="top" class="query-panel-content">
+            <header>
+                <div class="title">查询面板</div>
+            </header>
+            <u-filter :fieldNameList="fieldNameList" @on-filter="onFilter"></u-filter>
+        </section>
+        <section slot="bottom" class="result-content">
+            <header>
+                <div class="title">查询结果</div>
+                <div class="rest" v-if="data.length">
+                    <span class="export-btn" @click="onExport">
+                        导出本页
+                    </span>
+                    <span class="export-btn" @click="onExportAll">
+                        导出全部
+                    </span>
+                </div>
+            </header>
+            <div class="table-content">
+                <i-table ref="table" class="diy-table" :columns="columns" :data="data" :loading="loading">
+                    <!-- <template v-for="item in columns" :slot="item.slot" slot-scope="{ row, index }">
+                        <i-tooltip v-if="row[item.slot]" :content="row[item.slot]" max-width="500" transfer :transfer-class-name="'tooltip-diy'">
+                            <span class="row">{{row[item.slot]}}</span>
+                        </i-tooltip>
+                    </template> -->
+                </i-table>
+            </div>
+            <i-page show-elevator show-total show-sizer :total="total" @on-change="onPageChange" @on-page-size-change="onPageSizeChange" />
+        </section>
+    </i-split>
+</article>

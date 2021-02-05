@@ -1,0 +1,37 @@
+<i-modal
+    class="u-detail-database"
+    v-model="show"
+    title="数据源详情"
+    width="550"
+    :transfer="true"
+    footer-hide
+>
+    <article class="content">
+        <i-form ref="form">
+            <i-form-item label="数据源名称:">
+                <div>{{data.name}}</div>
+            </i-form-item>
+            <i-form-item label="数据源描述:">
+                <div>{{data.description}}</div>
+            </i-form-item>
+            <i-form-item label="数据源链接:">
+                <div>{{data.url}}</div>
+            </i-form-item>
+            <i-form-item label="数据源用户:">
+                <div>{{data.user}}</div>
+            </i-form-item>
+            <i-form-item label="创建人员:">
+                <div>{{data.creator}}</div>
+            </i-form-item>
+            <i-form-item label="创建时间:">
+                <div>{{data.createTime}}</div>
+            </i-form-item>
+            <i-form-item label="最小空闲连接数:">
+                <div>{{data.minIdle}}</div>
+            </i-form-item>
+            <i-form-item label="最大连接数:">
+                <div>{{data.maxPoolSize}}</div>
+            </i-form-item>
+        </i-form>
+    </article>
+</i-modal>

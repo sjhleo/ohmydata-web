@@ -1,0 +1,65 @@
+<article class="sql-controler">
+    <i-split v-model="split" mode="vertical">
+        <div slot="top" class="query">
+            <header>
+                <p>SQL面板</p>
+                <div class="btns">
+                    <i-button
+                        size="small"
+                        class="query-btn"
+                        @click="onFormatterSql"
+                        >格式化</i-button
+                    >
+                    <i-button
+                        size="small"
+                        class="query-btn"
+                        @click="onSelectCode"
+                        >运行选中</i-button
+                    >
+                    <i-button size="small" class="query-btn" @click="onSelect"
+                        >查询</i-button
+                    >
+                </div>
+            </header>
+            <section class="sql-panel">
+                <g-code-editor
+                    :key="dataSourceId"
+                    :option="sqlOption"
+                    :data-source-id="dataSourceId"
+                    :content.sync="sql"
+                    ref="sql"
+                ></g-code-editor>
+            </section>
+        </div>
+        <div slot="bottom" class="result">
+            <header>
+                <p>运行结果</p>
+                <i-radio-group v-model="type" type="button">
+                    <i-radio label="list">列表</i-radio>
+                    <i-radio label="json">JSON</i-radio>
+                </i-radio-group>
+            </header>
+            <section class="result-content" v-if="type === 'list'">
+                <i-table class="diy-table" :columns="column" :data="data">
+                </i-table>
+                <i-page
+                    show-sizer
+                    show-elevator
+                    show-total
+                    :current="paging.pageIndex"
+                    :page-size="paging.pageSize"
+                    :total="paging.totalCount"
+                    @on-change="onChangePageIndex"
+                    @on-page-size-change="onChangePageSize"
+                ></i-page>
+            </section>
+            <section class="result-content" v-else>
+                <g-code-editor
+                    :key="dataSourceId"
+                    :option="jsonOption"
+                    :content.sync="json"
+                ></g-code-editor>
+            </section>
+        </div>
+    </i-split>
+</article>

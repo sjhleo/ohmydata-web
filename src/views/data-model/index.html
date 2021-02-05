@@ -1,0 +1,88 @@
+<article class="data-model">
+    <i-split v-model="split" min="180px" max="800px">
+        <section slot="left" class="data-model-list">
+            <u-tree
+                :data="dataModelList"
+                @on-select="onDataModelSelect"
+                @on-edit-datamodel="onEditHandle"
+                @on-delete-datamodel="onDeleteHandle"
+            >
+                <div class="header" slot="header">
+                    <header>
+                        <p>数据模型列表</p>
+                    </header>
+                    <div
+                        class="add-data-model"
+                        @click.stop="onAddFolder"
+                        title="添加数据模型"
+                    ></div>
+                </div>
+            </u-tree>
+        </section>
+        <section v-if="message" slot="right" class="info">
+            <div class="info-content">
+                {{message && message || ""}}
+            </div>
+        </section>
+        <section v-else slot="right" class="modal-list-content">
+            <u-model-list
+                :data="data"
+                :paging.sync="paging"
+                @on-search="onSearch"
+                @on-page-index-change="onPageIndexChange"
+                @on-page-size-change="onPageSizeChange"
+                @on-delete-refresh="getTableData"
+            >
+            </u-model-list>
+        </section>
+    </i-split>
+
+    <!-- <section class="data-model-list">
+        <u-tree
+            :data="dataModelList"
+            @on-select="onDataModelSelect"
+            @on-edit-datamodel="onEditHandle"
+            @on-delete-datamodel="onDeleteHandle"
+        >
+            <div class="header" slot="header">
+                <header>
+                    <p>数据模型列表</p>
+                </header>
+                <div
+                    class="add-data-model"
+                    @click.stop="onAddFolder"
+                    title="添加数据模型"
+                ></div>
+            </div>
+        </u-tree>
+    </section>
+
+    <section v-if="message" class="info">
+        <div class="info-content">
+            {{message && message || ""}}
+        </div>
+    </section>
+    <section v-else class="modal-list-content">
+        <u-model-list
+            :data="data"
+            :paging.sync="paging"
+            @on-search="onSearch"
+            @on-page-index-change="onPageIndexChange"
+            @on-page-size-change="onPageSizeChange"
+            @on-delete-refresh="getTableData"
+        >
+        </u-model-list>
+    </section> -->
+
+    <u-category-modal
+        :visible.sync="categoryModalShow"
+        :categories="categories"
+        :current="current"
+        @refresh="getTypeList"
+    >
+    </u-category-modal>
+
+    <i-spin fix v-if="isLoading">
+        <i class="spin-icon-load ivu-icon"></i>
+    </i-spin>
+</article>

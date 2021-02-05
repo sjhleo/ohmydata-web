@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+/*
+.v-running-result-container {
+    @include size();
+    background-color: grey;
+}
+*/
+.ivu-modal-body {
+    header {
+        position: relative;
+        margin-bottom: 0.1rem;
+        p {
+            line-height: 0.32rem;
+            font-size: 0.16rem;
+            &::before {
+                content: "";
+                @include size(0.06rem, 0.18rem);
+                display: inline-block;
+                background: #4586f1;
+                border-radius: 0.03rem;
+                vertical-align: text-bottom;
+                margin-right: 0.1rem;
+            }
+        }
+    }
+
+    .params {
+        display: flex;
+        flex-wrap: wrap;
+        @include size();
+        margin-bottom: 0.1rem;
+
+        .param-item {
+            width: 50%;
+            margin-bottom: 0.1rem;
+            @include flex(row, flex-start, center);
+            > span {
+                display: inline-block;
+                width: 0.6rem;
+                text-align: right;
+            }
+            > div {
+                flex: 1;
+            }
+        }
+    }
+
+    .table-section {
+        overflow: auto;
+        max-height: 4rem;
+        min-height: 2rem;
+        .table-g .ivu-table .ivu-table-body {
+            overflow-x: scroll;
+        }
+    }
+
+    .actions {
+        @include flex(row, flex-end, center);
+        button {
+            margin-right: 0.22rem;
+            width: 1rem;
+            max-width: 100px;
+        }
+    }
+    .btns {
+        @include flex(row, center, center);
+        button {
+            margin: 0 10px;
+            width: 1rem;
+            max-width: 100px;
+        }
+    }
+}
+.panelShowModal {
+    @include flex(row, flex-end, center);
+    > .ivu-modal{
+        width: 10rem !important;
+        top: unset;
+    }
+}

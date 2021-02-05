@@ -1,0 +1,127 @@
+@charset "UTF-8";
+.u-add-database {
+    .content {
+        padding: 0 0.5rem;
+    }
+
+    .ivu-form-item {
+        margin-bottom: 0.1rem;
+        user-select: none;
+        .ivu-form-item-error-tip {
+            right: 0.3rem;
+            left: unset;
+            top: unset;
+            bottom: 0;
+            transform: translateY(-40%);
+        }
+    }
+
+    .success,
+    .failed {
+        position: relative;
+        margin: 0 0.4rem 0 0.1rem;
+    }
+
+    .success::after {
+        content: "";
+        display: inline-block;
+        @include size(0.2rem, 0.2rem);
+        @include bg-img("~@/assets/images/data-source/success.png");
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 0.1rem);
+        transform: translateY(-50%);
+    }
+
+    .failed::after {
+        content: "";
+        display: inline-block;
+        @include size(0.2rem, 0.2rem);
+        @include bg-img("~@/assets/images/data-source/failed.png");
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 0.1rem);
+        transform: translateY(-50%);
+    }
+
+    .url-help {
+        position: absolute;
+        top: -33px;
+        // top: -100%;
+        left: 22%;
+        .help-img {
+            @include size(16px, 16px);
+            background-color: #b9b9b9;
+            text-align: center;
+            line-height: 16px;
+            border-radius: 50%;
+            color: white;
+            font-size: 14px;
+        }
+        .help-img.active {
+            background-color: #4d7eda;
+        }
+    }
+
+    .help-info {
+        color: rgba(0, 0, 0, 0.5);
+        user-select: text;
+        margin-bottom: 0.1rem;
+        > div {
+            @include flex(row, flex-start, center);
+            line-height: 28px;
+            > div:first-child {
+                width: 100px;
+            }
+            > div:nth-child(2) {
+                word-break: break-all;
+                flex: 1;
+            }
+        }
+    }
+
+    .action-text {
+        color: #3487f7;
+        cursor: pointer;
+    }
+    .action-text:active {
+        opacity: 0.8;
+    }
+
+    .bts {
+        @include flex(row, center, center);
+        margin: 0.1rem -16px -12px -16px;
+        padding: 0.18rem 0 0.1rem 0;
+        background: #f8f9fb;
+        box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.12);
+
+        button {
+            width: 1rem;
+            min-width: 80px;
+            margin: 0 0.1rem;
+        }
+    }
+
+    .icon-load {
+        animation: loading 1s linear infinite;
+    }
+
+    @keyframes loading {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
+.modal-diy {
+    @include flex(row, center, center);
+    .ivu-modal {
+        top: unset;
+        .content {
+            max-height: 60vh;
+            overflow: scroll;
+        }
+    }
+}

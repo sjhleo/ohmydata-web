@@ -1,0 +1,105 @@
+<div class="v-data-modal-add-container">
+    <i-form ref="dataModelForm" :model="data" :rules="validateDataForm">
+        <i-row>
+            <i-form-item label="名称：" prop="name">
+                <i-input type="text" placeholder="请输入名称" v-model="data.name"></i-input>
+            </i-form-item>
+            <i-form-item label="编码：" prop="code">
+                <i-input type="text" placeholder="请输入名称" v-model="data.code"></i-input>
+            </i-form-item>
+            <i-form-item label="分组：" prop="categoryId">
+                <!-- <i-select v-model="data.categoryId" placeholder="请选择分组">
+                    <i-option v-for="item in catagoryList" :value="item">{{item}}</i-option>
+                </i-select> -->
+                <u-select-tree :data="catagoryList" :current="data" @on-select="onSelectCategory"></u-select-tree>
+            </i-form-item>
+            <i-form-item label="数据源：" prop="sourceId">
+                <i-select v-model="data.sourceId" placeholder="请选择数据源">
+                    <i-option v-for="item in dataSourceList" :value="item.id" :key="item.id">{{item.name}}</i-option>
+                </i-select>
+            </i-form-item>
+        </i-row>
+        <i-row>
+            <div class="cache">
+                <span class="item-label">是否开启缓存：</span>
+                <i-form-item prop="">
+                    <i-switch type="text" placeholder="请输入名称" v-model="data.enableCache" @on-change="onSwitchChange">
+                        <span slot="open">开</span>
+                        <span slot="close">关</span>
+                    </i-switch>
+                    <!-- <div class="time">
+                        <div class="prepend">过期时间</div>
+                        <i-input-number  
+                                v-model="data.expireSeconds"
+                                :min="1"
+                                placeholder="请输入过期时间"
+                                :disabled="controlDisabled">
+                        </i-input-number> 
+                        <div class="append">秒</div>  
+                    </div> -->
+                    <i-input v-model="data.expireSeconds" type="number" :min="1" placeholder="请输入过期时间"
+                        :disabled="controlDisabled">
+                        <span slot="prepend">过期时间</span>
+                        <span slot="append">秒</span>
+                    </i-input>
+                </i-form-item>
+            </div>
+            <i-form-item class="description" label="描述：" prop="">
+                <i-input type="text" placeholder="请输入描述" v-model="data.description"></i-input>
+            </i-form-item>
+        </i-row>
+        <i-row>
+            <span class="item-label">表达式：</span>
+            <i-form-item class="expression">
+                <div class="sql-panel">
+                    <div class="sql-panel-header">
+                        <span>SQL面板</span>
+                        <i-button size="small" type="success" @click="onProcess">点击运行</i-button>
+                    </div>
+                    <div class="sql-panel-main">
+                        <g-code-editor ref="sql" :data-source-id="data.sourceId" :option="sqlOption"
+                            :content.sync="data.expression"></g-code-editor>
+                    </div>
+                </div>
+                <i-tabs class="parameter">
+                    <i-tab-pane label="请求参数" name="request">
+                        <u-request-parameter-list :data="data.requestParams"></u-request-parameter-list>
+                    </i-tab-pane>
+                    <i-tab-pane label="响应参数" name="response">
+                        <u-response-parameter-list :data="data.responseParams"></u-response-parameter-list>
+                    </i-tab-pane>
+                    <i-tab-pane label="结果转化" name="resultDeal">
+                        <textarea class="result-deal" placeholder="请输入Java处理函数"
+                            v-model="data.responseExtractScript"></textarea>
+                    </i-tab-pane>
+                    <!-- <div class="add-action" slot="extra">
+                        <div class="add-icon"></div>
+                        <span>新增</span>
+                    </div> -->
+                </i-tabs>
+            </i-form-item>
+        </i-row>
+        <div class="action">
+            <i-button type="success" @click="onPreview">预览</i-button>
+            <i-button type="primary" @click="onDetermine">确定</i-button>
+            <i-button type="primary" @click="onCancel" ghost>取消</i-button>
+        </div>
+    </i-form>
+
+    <i-modal v-model="panelShow" title="预览" footer-hide class="json-modal" :transfer=false>
+        <section class="params">
+            <div class="param-item" v-for="param in data.requestParams" :key="param.name">
+                <span>{{param.name}}：</span>
+                <i-input placeholder="请输入参数值" v-model="context[param.name]"></i-input>
+            </div>
+        </section>
+        <div class="actions">
+            <i-button type="primary" @click="onProcessPreview">执行</i-button>
+            <i-button type="primary" @click="panelShow=false" ghost>取消</i-button>
+        </div>
+        <g-code-editor ref="resultJson" :option="{readOnly: true}" :content.sync="previewJson"></g-code-editor>
+    </i-modal>
+
+    <u-process-result :params="data.requestParams" :data="resultData" :visible.sync="resultShow" @on-runing="onRunning"
+        @on-save="onSaveRunning"></u-process-result>
+</div>

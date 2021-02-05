@@ -1,0 +1,7 @@
+<div class="page-container">
+    <transition name="fade" mode="out-in">
+        <keep-alive :include="cacheList">
+            <router-view></router-view>
+        </keep-alive>
+    </transition>
+</div>

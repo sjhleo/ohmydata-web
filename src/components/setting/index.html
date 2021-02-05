@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<div class="setting-wrapper">
+
+    <i-dropdown>
+        <span class="user-name">{{user.username}}</span>
+        <i-icon type="ios-arrow-down"></i-icon>
+        <i-dropdown-menu slot="list">
+            <i-dropdown-item name="loginout" @click.native="onLogout">注销</i-dropdown-item>
+        </i-dropdown-menu>
+    </i-dropdown>
+    <img :src="user.photo" @error="onHandleError" class="ivu-avatar ivu-avatar-circle" />
+
+</div>

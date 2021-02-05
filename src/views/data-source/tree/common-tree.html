@@ -1,0 +1,17 @@
+<article class="common-tree" :class="className.join(' ')">
+    <slot name="header"></slot>
+    <section class="content">
+        <i-input
+            class="search-input"
+            suffix="ios-search"
+            :placeholder="placeholder"
+            @on-change="onFilter"
+            v-model="keyword"
+        />
+        <i-tree
+            :data="renderData"
+            :render="renderContent"
+            @on-toggle-expand="onToggleExpand"
+        ></i-tree>
+    </section>
+</article>

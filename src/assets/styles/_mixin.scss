@@ -1,0 +1,94 @@
+@charset 'UTF-8';
+
+/* --------------------------------------------
+宽高
+---------------------------------------------*/
+@mixin size($width: 100%, $height: 100%) {
+    width               : $width;
+    height              : $height;
+}
+/* --------------------------------------------
+flex布局
+---------------------------------------------*/
+@mixin flex($row: row, $justify-content: flex-start, $align-items: flex-start) {
+    display             : flex;
+    flex-flow           : $row nowrap;
+    justify-content     : $justify-content;
+    align-items         : $align-items;
+}
+/* --------------------------------------------
+字体
+---------------------------------------------*/
+@mixin font($font-size: $font-size-g, $font-weight: normal, $font-family: inherit) {
+    font-size           : $font-size;
+    font-weight         : $font-weight;
+    font-family         : $font-family;
+}
+/* --------------------------------------------
+背景图片
+---------------------------------------------*/
+@mixin bg-img($url) {
+    background-image    : url($url);
+    background-repeat   : no-repeat;
+    background-position : center;
+    background-size     : 100% 100%;
+}
+/* --------------------------------------------
+省略号
+---------------------------------------------*/
+@mixin ellipsis() {
+    overflow            : hidden;
+    -ms-text-overflow   : ellipsis;
+    text-overflow       : ellipsis;
+    white-space         : nowrap;
+}
+/* --------------------------------------------
+绝对定位
+---------------------------------------------*/
+@mixin absolute($top: 0, $right: unset, $bottom: unset, $left: 0) {
+    position            : absolute;
+    top                 : $top;
+    left                : $left;
+    bottom              : $bottom;
+    right               : $right;
+}
+/* --------------------------------------------
+阴影
+---------------------------------------------*/
+@mixin text-shadow($color: $font-color-white-g, $shadow-color: $font-color-white-g) {
+    color               : $color;
+    text-shadow         : rgba($shadow-color, 1) 0 0 0.02rem,
+                        rgba($shadow-color, 1) 0 0 0.04rem,
+                        rgba($shadow-color, 1) 0 0 0.06rem,
+                        rgba($color, 1) 0 0 0.2rem;
+}
+/* --------------------------------------------
+默认图片(设置image标签默认图片)
+---------------------------------------------*/
+@mixin img-default($url) {
+    position            : relative;
+
+    &::after {
+        @include        size;
+        @include        bg-img($url);
+        @include        absolute(0, unset, unset, 0);
+        content         : "";
+    }
+}
+/* --------------------------------------------
+低于12px字体(支持chrome 需要自行调整宽高、布局)
+---------------------------------------------*/
+@mixin font-mini($font-size: 10px) {
+    // display:inline-block;
+    // vertical-align: middle;
+    // font-size: 2 * $font-size;
+    font-size           : 12px;
+    -webkit-transform   : scale(round($font-size / 12px * 100) / 100);
+    transform-origin    : left center;
+}
+/* --------------------------------------------
+边框
+---------------------------------------------*/
+@mixin border($width: 1px, $style: solid, $color: $font-color-white-g) {
+    border: $width $style $color;
+}

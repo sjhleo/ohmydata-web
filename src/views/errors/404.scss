@@ -1,0 +1,38 @@
+@keyframes v-error-404-icon-animation
+{
+    0%
+    {
+        transform: rotateZ(0deg);
+    }
+    20%
+    {
+        transform: rotateZ(-60deg);
+    }
+    40%
+    {
+        transform: rotateZ(-10deg);
+    }
+    60%
+    {
+        transform: rotateZ(50deg);
+    }
+    80%
+    {
+        transform: rotateZ(-20deg);
+    }
+    100%
+    {
+        transform: rotateZ(0deg);
+    }
+}
+
+.v-error-404
+{
+    &-icon
+    {
+        display: inline-block;
+        color: #19be6b;
+        font-size: 230px;
+        animation: v-error-404-icon-animation 3s ease 0s infinite alternate;
+    }
+}

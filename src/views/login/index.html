@@ -1,0 +1,34 @@
+<div class="v-login">
+    <div class="out-circle"></div>
+    <div class="inner-circle"></div>
+    <div class="logo-div"></div>
+    <div class="logo"></div>
+    <div class="title">{{title}}</div>
+
+    <div class="v-login-content" @keydown.enter="onLogin">
+        <div class="v-login-content-form">
+            <i-form ref="loginForm" :model="form" :rules="rules">
+                <i-form-item prop="username">
+                    <i-input v-model="form.username" placeholder=" 账号"></i-input>
+                </i-form-item>
+                <i-form-item prop="password">
+                    <i-input type="password" v-model="form.password" placeholder=" 密码"></i-input>
+                </i-form-item>
+                <div class="tool-bar" v-show="false">
+                    <i-checkbox v-model="remember">记住账号</i-checkbox>
+                    <a>忘记密码</a>
+                </div>
+                <i-form-item>
+                    <i-button @click="onLogin" class="login-btn" type="primary" :loading="isLoading">登 录</i-button>
+                    <i-button @click="onReset" class="login-btn" type="primary">重 置</i-button>
+                </i-form-item>
+            </i-form>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progressWarpper" v-for="(item,index) in countArry">
+            <div class="progressIcon"></div>
+            <div class="progressIcon"></div>
+        </div>
+    </div>
+</div>

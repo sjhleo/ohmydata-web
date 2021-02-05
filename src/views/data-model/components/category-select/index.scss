@@ -1,0 +1,12 @@
+.select-tree {
+    width: 100%;
+    .ivu-poptip,
+    .ivu-poptip-rel {
+        width: 100%;
+    }
+    .ivu-tree {
+        width: 2.5rem;
+        height: 3rem;
+        overflow-y: scroll;
+    }
+}

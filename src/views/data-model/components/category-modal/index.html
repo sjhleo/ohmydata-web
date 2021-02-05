@@ -1,0 +1,19 @@
+<i-modal v-model="show" :title="current.id ? '编辑分组' : '新增分组'" class="model-add">
+    <i-form :label-width="120">
+        <i-form-item label="分组名称" required>
+            <i-input v-model="current.name"></i-input>
+        </i-form-item>
+        <i-form-item label="所属分组">
+            <i-poptip trigger="click" placement="bottom-start" v-model="popVisible" >
+                <i-input readonly :value="current.parentName" clearable @on-clear="onClear"></i-input>
+                <template slot="content">
+                    <i-tree :data="categories" @on-select-change="onParentSelect"></i-tree>
+                </template>
+            </i-poptip>
+        </i-form-item>
+    </i-form>
+    <footer slot="footer">
+        <i-button type="primary" :loading="isLoading" @click="onSaveClick">保存</i-button>
+        <i-button @click="show = false">取消</i-button>
+    </footer>
+</i-modal>

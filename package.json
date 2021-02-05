@@ -1,0 +1,43 @@
+{
+  "name": "ohmydata-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "check": "http-server ./dist -a 127.0.0.1 -p 5050"
+  },
+  "dependencies": {
+    "js-cookie": "^2.2.1",
+    "view-design": "^4.4.0",
+    "nprogress": "^0.2.0",
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0",
+    "lodash.throttle": "^4.1.1",
+    "sql-formatter": "^2.3.3",
+    "codemirror": "^5.57.0",
+    "mavon-editor": "^2.9.0",
+    "vue-virtual-scroller": "^1.0.10",
+    "halo-math": "^1.0.9",
+    "vuex-class": "^0.3.2"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^2.2.4",
+    "@types/codemirror": "0.0.98",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "node-sass": "^4.12.0",
+    "raw-loader": "^1.0.0",
+    "sass-loader": "^8.0.2",
+    "typescript": "~3.9.3",
+    "vue-template-compiler": "^2.6.11"
+  }
+}

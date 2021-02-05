@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.v-parameter-list-container {
+    @include size();
+
+    .parameter-list-main {
+        @include size();
+
+        .ivu-table {
+            @include flex(column);
+
+            .ivu-table-body {
+                flex: 1;
+                overflow: auto;
+            }
+        }
+
+        .read-status {
+            @include flex(row, center, center);
+            .edit-icon {
+                @include size(0.16rem, 0.16rem);
+                @include bg-img("~@/assets/images/data-model/edit.png");
+                cursor: pointer;
+            }
+            .delete-icon {
+                @include size(0.16rem, 0.16rem);
+                @include bg-img("~@/assets/images/data-model/delete.png");
+                cursor: pointer;
+                margin-left: 0.05rem;
+            }
+        }
+
+        .edit-status {
+            @include flex(row, center, center);
+            .confirm-icon {
+                @include size(0.16rem, 0.16rem);
+                @include bg-img("~@/assets/images/data-model/confirm.png");
+                cursor: pointer;
+            }
+            .cancel-icon {
+                @include size(0.16rem, 0.16rem);
+                @include bg-img("~@/assets/images/data-model/cancel.png");
+                cursor: pointer;
+                margin-left: 0.05rem;
+            }
+        }
+    }
+}

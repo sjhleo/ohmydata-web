@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<div class="main-wrapper" :class="{'mini-menu-wrapper':collapsed}">
+    <header>
+        <div class="title" @click="onGoToHome">
+            <div class="image"></div>
+            <span v-if="!collapsed">数据服务</span>
+        </div>
+        <i-icon
+            type="md-menu"
+            class="switch-icon"
+            @click="collapsed=!collapsed"
+        />
+        <i-breadcrumb>
+            <i-breadcrumb-item v-for="item in breadcrumbItems" :key="item.name"
+                >{{item.meta.title}}</i-breadcrumb-item
+            >
+        </i-breadcrumb>
+        <div class="rest">
+            <u-setting></u-setting>
+        </div>
+    </header>
+    <main>
+        <div class="side">
+            <!-- <u-side-menu
+                ref="sideMenu"
+                :active-name="$route.name"
+                :collapsed="collapsed"
+                v-if="menuList.length >0"
+                :menu-list="menuList"
+                @on-select="onTurnToPage"
+            ></u-side-menu> -->
+            <i-menu :active-name="active" theme="dark">
+                <i-menu-item v-for="item in menuList" :name="item.name" :to="item">
+                    {{item.meta.title}}
+                </i-menu-item>
+        </div>
+        <div class="content">
+            <header>
+                <div v-for="(tag,index) in tagList" :key="tag.id" @click="onClickTag(tag)" :class="{'active': activeTagId === tag.id}">
+                    <span>{{tag.route.meta.title}}</span>
+                    <i-icon v-if="tagList.length !== 1 || tag.route.name !=='data-source-list'" type="ios-close" @click.stop="onCloseTag(tag, index)"/>
+                </div>
+            </header>
+            <keep-alive :include="cacheList">
+                <router-view />
+            </keep-alive>
+        </div>
+    </main>
+</div>

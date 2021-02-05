@@ -1,0 +1,64 @@
+.data-model {
+    @include size();
+    display: flex;
+    overflow: hidden;
+    background: white;
+    &-list {
+        @include size();
+        padding: 0.15rem;
+        background: white;
+        border-radius: 2px;
+
+        .header {
+            @include flex(row, space-between, center);
+            position: relative;
+            margin-bottom: 0.1rem;
+
+            p {
+                font-size: 0.16rem;
+                font-weight: 600;
+                color: #2f78f0;
+                &::before {
+                    content: "";
+                    @include size(0.06rem, 0.18rem);
+                    display: inline-block;
+                    background: #4586f1;
+                    border-radius: 0.03rem;
+                    vertical-align: text-bottom;
+                    margin-right: 0.1rem;
+                }
+            }
+
+            .add-data-model {
+                @include size(0.2rem, 0.2rem);
+                @include bg-img("~@/assets/images/data-model/new-folder.png");
+                cursor: pointer;
+            }
+        }
+    }
+
+    .modal-list-content {
+        @include size();
+    }
+
+    section.info {
+        @include size();
+        @include flex(column, center, center);
+        flex: 1;
+        font-size: 24px;
+        color: #868fa6;
+        user-select: none;
+    }
+    section.info::before {
+        content: "";
+        display: inline-block;
+        @include size(3.02rem, 1.99rem);
+        @include bg-img("~@/assets/images/data-source/error.png");
+        margin-bottom: 0.4rem;
+    }
+
+    .ivu-split-trigger.ivu-split-trigger-vertical {
+        opacity: 0;
+        transform: translateX(-0.17rem);
+    }
+}

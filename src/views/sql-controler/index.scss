@@ -1,0 +1,96 @@
+.sql-controler {
+    @include size();
+    padding: 0 0.15rem 0.15rem 0.15rem;
+    background-color: white;
+    overflow: hidden;
+    header {
+        position: relative;
+        margin-bottom: 0.1rem;
+        p {
+            line-height: 0.32rem;
+            font-size: 0.16rem;
+            &::before {
+                content: "";
+                @include size(0.06rem, 0.18rem);
+                display: inline-block;
+                background: #4586f1;
+                border-radius: 0.03rem;
+                vertical-align: text-bottom;
+                margin-right: 0.1rem;
+            }
+        }
+        .btns {
+            position: absolute;
+            right: 0;
+            top: 0.1rem;
+            .query-btn {
+                background: #59bb5c;
+                border-radius: 2px;
+                color: white;
+                min-width: 0.6rem;
+            }
+        }
+        .ivu-radio-group {
+            position: absolute;
+            right: 0;
+            top: 0;
+            .ivu-radio-wrapper {
+                background: #f7f7f7;
+                width: 0.8rem;
+                text-align: center;
+            }
+            .ivu-radio-wrapper-checked {
+                background: #0091ff;
+                color: white;
+            }
+        }
+    }
+    .query {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        .sql-panel {
+            flex: 1;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid #d8d8d8;
+            border-radius: 4px;
+            // margin-bottom: 5px;
+            .code-editor {
+                overflow: scroll;
+            }
+        }
+    }
+    .ivu-split-trigger {
+        height: 0;
+        width: calc(100% - 4px);
+        transform: translate(2px, -1px);
+        border-bottom: 0;
+        .ivu-split-trigger-bar-con {
+            display: none;
+        }
+    }
+    .result {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        height: 100%;
+        > header {
+            margin-top: 0.1rem;
+        }
+        .result-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            .ivu-page {
+                text-align: right;
+                margin-top: 0.1rem;
+            }
+            .table-g .ivu-table .ivu-table-body {
+                overflow-x: scroll;
+            }
+        }
+    }
+}

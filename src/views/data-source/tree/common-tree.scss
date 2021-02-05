@@ -1,0 +1,72 @@
+.common-tree {
+    @include size();
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    > .content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow: hidden;
+        border: 1px solid #d8d8d8;
+        border-radius: 4px;
+        padding: 0.1rem 0.08rem;
+    }
+    .search-input {
+        margin-bottom: 0.1rem;
+        .ivu-input {
+            width: calc(100% - 4px);
+            background: #f6fbff;
+            border-radius: 100px;
+            line-height: 0.38rem;
+            height: 0.38rem;
+            border: 0;
+            margin: 0 2px;
+        }
+        .ivu-icon {
+            line-height: 0.38rem;
+        }
+    }
+    .ivu-tree {
+        flex: 1;
+        position: relative;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        .ivu-icon-ios-arrow-forward {
+            font-size: 0.2rem;
+            &:before {
+                content: "\F341";
+            }
+        }
+        .ivu-tree-title {
+            width: calc(100% - 0.2rem);
+            .tree-item {
+                width: 100%;
+                line-height: 0.24rem;
+                display: flex;
+                align-items: center;
+                .ivu-tooltip {
+                    flex: 1;
+                    overflow: hidden;
+                    .ivu-tooltip-rel {
+                        width: 100%;
+                        p {
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            width: 100%;
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+        }
+
+        .ivu-tree-children {
+            > li:first-child {
+                line-height: 0.2rem;
+            }
+        }
+    }
+}

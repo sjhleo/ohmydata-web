@@ -1,0 +1,266 @@
+.v-login {
+    @include size;
+    top: 0rem;
+    position: absolute;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-image: url("~@/assets/images/login/bg2.png");
+
+    .out-circle,
+    .inner-circle,
+    .logo-div,
+    .logo,
+    .item-div,
+    .line,
+    .title {
+        position: absolute;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    .out-circle {
+        background-image: url("~@/assets/images/login/out-circle.png");
+        width: 7.5rem;
+        height: 7.5rem;
+        top: 1.15rem;
+        left: 1.72rem;
+        animation: rotate 10000ms linear infinite;
+    }
+
+    .inner-circle {
+        background-image: url("~@/assets/images/login/inner-circle.png");
+        width: 8.57rem;
+        height: 6.95rem;
+        top: calc(1.15rem + .25rem);
+        left: calc(1.72rem + .33rem)
+    }
+
+    .logo-div {
+        background-image: url("~@/assets/images/login/logo-div.png");
+        width: 1.64rem;
+        height: 1.64rem;
+        top: calc(1.15rem + 2.90rem);
+        left: calc(1.72rem + 2.94rem);
+        animation: reRotate 10000ms linear infinite;
+    }
+
+    .logo {
+        // background-image: url("~@/assets/images/logo.png");
+        width: 1.01rem;
+        height: 1.05rem;
+        top: calc(1.15rem + 3.25rem);
+        left: calc(1.72rem + 3.3rem);
+    }
+
+    .title {
+        width: 5.62rem;
+        height: .41rem;
+        top: 1.92rem;
+        left: 11.2rem;
+        font-size: .37rem;
+        font-weight: 600;
+        letter-spacing: .04rem;
+        color: #026497;
+        line-height: .44rem;
+        text-align: center;
+        text-shadow: -2px 5px 2px rgba(2, 100, 151, 1);
+        -webkit-text-stroke: 1px #00B1FF;
+    }
+
+    .item-div {
+        width: 3.06rem;
+        height: 1.60rem;
+        min-width: 260px;
+        padding: .2rem .05rem .2rem 0;
+        top: calc(1.15rem + 6.56rem);
+        left: calc(1.72rem + 6.19rem);
+        background-image: url("~@/assets/images/login/item-div.png");
+
+        .items {
+            display: inline-block;
+            width: 49%;
+            padding-left: .51rem;
+
+            >li {
+                line-height: .3rem;
+                color: #02A4EC;
+            }
+        }
+    }
+
+    .line {
+        width: 1.66rem;
+        height: 2.02rem;
+        top: calc(1.15rem + 4.55rem);
+        left: calc(1.72rem + 6.08rem);
+        background-image: url("~@/assets/images/login/line.png");
+    }
+
+    &-content {
+        position: absolute;
+        width: 5.62rem;
+        // width: 4.95rem;
+        height: 3.95rem;
+        top: 2.67rem;
+        left: 11.2rem;
+        background-image: url("~@/assets/images/login/login-form.png");
+        background-size: 100% 100%;
+        text-align: center;
+        padding: .5rem 1.085rem 0;
+
+        &-form {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            letter-spacing: 4px;
+            color: #02A4EC;
+            background-color: transparent !important;
+
+            .ivu-form-item {
+                margin: .35rem 0 .05rem;
+
+                .ivu-form-item-error-tip {
+                    display: block;
+                    position: static;
+                    text-align: left;
+                }
+
+                .ivu-form-item-content {
+                    margin-left: 0;
+                }
+            }
+
+            .ivu-input {
+                background-color: transparent !important;
+                width: 2.78rem;
+                height: .44rem;
+                border: 1px solid #02A4EC;
+                border-radius: 2px;
+                color: #02A4EC;
+                font-size: .14rem;
+
+                &::placeholder {
+                    color: #02A4EC;
+                }
+            }
+
+            .tool-bar {
+                display: flex;
+                justify-content: space-between;
+
+                .ivu-checkbox-wrapper {
+                    margin-right: .48rem;
+
+                    .ivu-checkbox-inner {
+                        background-color: transparent !important;
+                        border: 1px solid #02A4EC;
+                    }
+                }
+            }
+
+            .login-btn {
+                width: 1.2rem;
+                height: .44rem;
+                line-height: .44rem;
+                padding: 0 !important;
+                background-color: transparent !important;
+                background-image: url("~@/assets/images/login/submit.png");
+                background-size: 100% 100%;
+                color: #02A4EC;
+            }
+        }
+    }
+
+    .progress {
+        position: absolute;
+        width: 3.2rem;
+        height: .25rem;
+        top: 2.67rem;
+        left: 12.7rem;
+        display: flex;
+
+        .progressWarpper {
+            display: flex;
+            width: .24rem;
+
+            .progressIcon {
+                width: .12rem;
+                height: .21rem;
+                background-image: url("~@/assets/images/login/progress.png");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes reRotate {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@media screen and(max-width:1370px) {
+    .login-page {
+        .out-circle {
+            top: 50px;
+        }
+
+        .inner-circle {
+            top: calc(50px + .25rem);
+        }
+
+        .title {
+            top: calc(50px + 1.3rem);
+        }
+
+        .logo-div {
+            top: calc(50px + 2.9rem);
+        }
+
+        .logo {
+            top: calc(50px + 3.25rem);
+        }
+
+        .line {
+            top: calc(50px + 4.55rem);
+        }
+
+        .item-div {
+            top: calc(50px + 6.55rem);
+        }
+
+        .progress {
+            position: absolute;
+            width: 3.2rem;
+            height: .2rem;
+            top: 2.67rem;
+            left: 12.6rem;
+
+            .progressWarpper {
+                .progressIcon {
+                    width: .12rem;
+                    height: .21rem;
+                    background-image: url("~@/assets/images/login/progress.png");
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+}

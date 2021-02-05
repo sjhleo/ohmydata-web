@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.table-fields-diy {
+    @include flex(row, center, center);
+    .ivu-modal {
+        width: 60% !important;
+        position: relative;
+        top: unset;
+        .ivu-modal-body {
+            height: 5rem;
+            // height: 450px;
+            // max-height: 5rem;
+            // overflow: hidden;
+        }
+    }
+}

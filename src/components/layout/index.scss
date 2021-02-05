@@ -1,0 +1,121 @@
+@charset "UTF-8";
+.main-wrapper {
+    @include size();
+    position: relative;
+    @include flex(column, flex-start, flex-start);
+    > header {
+        @include size(100%, 0.6rem);
+        position: relative;
+        @include flex(row, flex-start, center);
+        box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+        .title {
+            @include size(2rem, 100%);
+            position: relative;
+            cursor: pointer;
+            background: #414757;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0.2rem;
+            @include flex(row, center, center);
+            .image {
+                @include bg-img("~@/assets/images/logo.png");
+                width: 0.6rem;
+                height: 0.6rem;
+                margin-top: -0.1rem;
+            }
+            > span {
+                flex: 1;
+                font-size: 0.22rem;
+                letter-spacing: 0.02rem;
+            }
+        }
+        .switch-icon {
+            font-size: 0.3rem;
+            margin: 0 0.1rem;
+            cursor: pointer;
+        }
+        .ivu-breadcrumb {
+            font-size: 0.16rem;
+        }
+        .rest {
+            flex: 1;
+            height: 100%;
+            position: relative;
+            @include flex(row, flex-end, center);
+            > section {
+                @include flex(row, flex-start, stretch);
+                height: 100%;
+                > div {
+                    @include flex(row, flex-start, center);
+                    cursor: pointer;
+                    padding: 0 0.3rem;
+                    &.active {
+                        background: rgba(58, 63, 82, 1);
+                    }
+                }
+            }
+        }
+    }
+    > main {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        @include flex(row, flex-start, flex-start);
+
+        .side {
+            @include size(2rem, 100%);
+            position: relative;
+            .ivu-menu {
+                @include size(100%!important, 100%);
+            }
+        }
+
+        > .content {
+            flex: 1;
+            height: 100%;
+            position: relative;
+            background: #eff3f6;
+            padding: 0.15rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            > header {
+                display: flex;
+                > div {
+                    margin-top: 0.05rem;
+                    margin-right: 0.04rem;
+                    height: 0.32rem;
+                    padding: 0.05rem 0.16rem 0.04rem;
+                    transition: all 0.3s ease-in-out;
+                    background: #fafcff;
+                    border-radius: 0.04rem 0.04rem 0 0;
+                    cursor: pointer;
+                    &.active {
+                        background: #ffffff;
+                        color: #8ab9fd;
+                    }
+                }
+            }
+            .page-container {
+                flex: 1;
+                background: white;
+            }
+        }
+    }
+    &.mini-menu-wrapper {
+        .side {
+            width: 0.6rem;
+        }
+        .title {
+            width: 0.6rem;
+            padding: 0;
+            .image {
+                @include size(0.32rem, 0.32rem);
+                margin: auto;
+            }
+        }
+    }
+}

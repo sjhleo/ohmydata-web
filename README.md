@@ -1,0 +1,18 @@
+## oh-my-data-web
+
+    数据服务 —— 写个 SQL 即可发布成 API
+
+### 运行
+
+```
+    npm i
+    npm run serve
+```
+
+### 打包
+
+```
+    npm run build
+```
+
+<!-- ### [在线示例](https://github.com/sjhleo/vue-preset-template/blob/master/README.md) -->

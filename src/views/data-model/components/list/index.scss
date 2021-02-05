@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+.v-data-modal-list-container {
+    @include size();
+    @include flex(column, flex-start, flex-start);
+    padding: 0.15rem;
+    overflow: hidden;
+
+    >header {
+        @include flex(column,flex-start, flex-start);
+        width: 100%;
+        margin-bottom: 0.1rem;
+
+        .condition {
+            @include flex(row, flex-start, center);
+            width: 100%;
+            position: relative;
+
+            .input-item:nth-child(1) {
+                margin-left: 0.15rem;
+            }
+
+            .input-item:nth-child(2) {
+                margin-left: 0.3rem;
+            }
+
+            .search-btn {
+                position: absolute;
+                right: 0rem;
+            }
+        }
+
+        .ivu-input-wrapper {
+            width: 2.64rem;
+        }
+    }
+
+    main {
+        position: relative;
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.12rem;
+        overflow: hidden;
+        .main-head {
+            @include flex(row, space-between, center);
+
+            .action-btns {
+                @include flex(row, space-between, center);
+
+                .add-model {
+                    @include flex(row, center, center);
+                    margin-right: 0.1rem;
+                    cursor: pointer;
+
+                    .add-icon {
+                        margin-right: 0.05rem;
+                        @include size(0.16rem, 0.16rem);
+                        @include bg-img("~@/assets/images/data-model/add.png");
+                    }
+                }
+                .batch-delete-model {
+                    @include flex(row, center, center);
+                    cursor: pointer;
+
+                    .batch-delete-icon {
+                        margin-right: 0.05rem;
+                        @include size(0.16rem, 0.16rem);
+                        @include bg-img("~@/assets/images/data-model/batch-delete.png");
+                    }
+                }
+            }
+
+        }
+        .ivu-table-cell-slot {
+            @include flex(row, center, center);
+
+            .detail-icon {
+                @include size(0.16rem, 0.16rem);
+                @include bg-img("~@/assets/images/data-model/detail.png");
+                cursor: pointer;
+            }
+            .edit-icon {
+                @include size(0.16rem, 0.16rem);
+                @include bg-img("~@/assets/images/data-model/edit.png");
+                cursor: pointer;
+                margin-left: 0.05rem;
+            }
+            .delete-icon {
+                @include size(0.16rem, 0.16rem);
+                @include bg-img("~@/assets/images/data-model/delete.png");
+                cursor: pointer;
+                margin-left: 0.05rem;
+            }
+        }
+    }
+
+    .pagination {
+        position: relative;
+        width: 100%;
+        text-align: right;
+        margin-top: 0.1rem;
+    }
+
+    header {
+        position: relative;
+        margin-bottom: 0.1rem;
+
+        p {
+            line-height: 0.32rem;
+            font-size: 0.16rem;
+            &::before {
+                content: "";
+                @include size(0.06rem, 0.18rem);
+                display: inline-block;
+                background: #4586f1;
+                border-radius: 0.03rem;
+                vertical-align: text-bottom;
+                margin-right: 0.1rem;
+            }
+        }
+    }
+}
