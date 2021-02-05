@@ -82,16 +82,14 @@ export default class SQLControler extends CommonView {
         this.column = [];
         let result = await this.sqlControlerService.select(this.dataSourceId, {
             sql: sql || this.sql,
-            paging: this.paging
+            page: this.paging.pageIndex,
+            size: this.paging.pageSize
         });
-        if (!result || !result.success) {
-            return this.$Message.error("查询SQL异常");
-        }
         if (!result.data || result.data.length === 0) {
             return this.$Message.warning("查询数据为空");
         }
         this.data = result.data;
-        this.paging.totalCount = result.totalCount;
+        this.paging.totalCount = result.total;
         Object.keys(this.data[0]).forEach(key => {
             this.column.push({
                 title: key,

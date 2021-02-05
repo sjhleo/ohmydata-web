@@ -16,7 +16,7 @@ export default class AddlDataBaseComponent extends Vue {
                 name: "",
                 description: "",
                 url: "",
-                user: "",
+                username: "",
                 password: "",
                 minIdle: "1",
                 maxPoolSize: "8",
@@ -45,7 +45,7 @@ export default class AddlDataBaseComponent extends Vue {
             { required: true, message: "数据源链接不能为空", trigger: "blur,change" }
         ],
         type: [{ required: true, message: "数据源类型不能为空", trigger: "blur,change" }]
-        // user: [{ required: true, message: "用户名不能为空", trigger: "blur" }],
+        // username: [{ required: true, message: "用户名不能为空", trigger: "blur" }],
         // password: [{ required: true, message: "密码不能为空", trigger: "blur" }]
     };
 
