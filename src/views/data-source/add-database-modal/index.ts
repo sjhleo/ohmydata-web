@@ -94,7 +94,7 @@ export default class AddlDataBaseComponent extends Vue {
         this.checking = true;
         try {
             let res = await this.service.checkDataSource(this.data);
-            if (res.hasError || !res.result) {
+            if (!res.success || !res.data) {
                 this.$Message.error(res.message || "连接数据源失败");
                 this.checkingResult = false;
             } else {

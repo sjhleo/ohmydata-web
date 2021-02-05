@@ -120,7 +120,7 @@ export default class DataModelList extends Vue {
             content: "确认删除该数据模型分组吗？",
             onOk: async () => {
                 let res: any = await this.service.deleteModelById(rowData.id);
-                if (res && !res.hasError) {
+                if (res && res.success) {
                     this.$Message.success("删除数据成功");
                     this.$emit("on-delete-refresh");
                 }
@@ -149,7 +149,7 @@ export default class DataModelList extends Vue {
             onOk: async () => {
                 const idArray = this.selections.map(item => item.id);
                 let or: any = await this.service.deleteDataModel(idArray);
-                if (or && !or.hasError) {
+                if (or && or.success) {
                     this.page.pageIndex = 1;
                     this.$emit("on-delete-refresh");
                     this.selections = [];

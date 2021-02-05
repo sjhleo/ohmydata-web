@@ -50,7 +50,7 @@ export default class CategoryModal extends Vue {
             res = await this.service.saveCategory(this.current);
         }
 
-        if (res && !res.hasError) {
+        if (res && res.success) {
             this.show = false;
             this.$emit("refresh");
         }

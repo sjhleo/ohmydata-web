@@ -127,13 +127,16 @@ export default class DataSource extends Vue {
     public async onViewTableField(data: any) {
         const table = data.item || {};
         this.showTableFilds = true;
-        let res = await this.service.getTableFields(table.dataSourceId, table.id);
-        if (res.hasError) {
+        let res = await this.service.getTableFields(
+            table.dataSourceId,
+            table.id
+        );
+        if (!res.success) {
             this.tableFields = [];
             this.$Message.error(res.message || "获取字段错误，请稍后再试");
             return;
         }
-        this.tableFields = res.result.columns;
+        this.tableFields = res.data.columns;
     }
 
     public onDeleteTable(table: any) {
@@ -165,8 +168,8 @@ export default class DataSource extends Vue {
 
         // 获取表格的列
         let res = await this.service.getTableFields(params.id, params.name);
-        if (res && !res.hasError) {
-            this.tableColumns = (res.result.columns || []).map((v: any) => {
+        if (res && res.success) {
+            this.tableColumns = (res.data.columns || []).map((v: any) => {
                 return {
                     title: v.name,
                     // slot: v.name,
@@ -219,7 +222,7 @@ export default class DataSource extends Vue {
     // public async getTableStructure(params: any): Promise<any> {
     //     let res = await this.service.getTableFields(params.id, params.name);
     //     debugger;
-    //     return res.result.columns || [];
+    //     return res.data.columns || [];
     // }
 
     public async getTableData() {
@@ -238,16 +241,15 @@ export default class DataSource extends Vue {
         };
 
         this.loadingTableData = true;
-        let queryData = { ...queries, paging: this.paging };
-        try {
-            let res = await this.service.getTableData(params, queryData);
-            this.paging.totalCount = res.totalCount;
-            this.data = res.result || [];
-        } catch (error) {
-            this.$Message.error("查询失败，请稍后再试");
-        } finally {
-            this.loadingTableData = false;
-        }
+        let queryData = {
+            ...queries,
+            page: this.paging.pageIndex,
+            size: this.paging.pageSize
+        };
+        let res = await this.service.getTableData(params, queryData);
+        this.loadingTableData = false;
+        this.paging.totalCount = res.total;
+        this.data = res.data || [];
     }
 
     public onPageChange(index: number) {
@@ -286,9 +288,9 @@ export default class DataSource extends Vue {
         });
     }
     public async getTypeList() {
-        let res = await this.service.getTypeList();
-        if (res && !res.hasError) {
-            this.typeList = res.result;
+        let res = await this.service.getEnumByType("adapter-types");
+        if (res && res.success) {
+            this.typeList = res.data;
         }
     }
 }

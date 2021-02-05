@@ -79,11 +79,11 @@ export default class ResponseParameterList extends Vue {
     }
     public async getTypeList() {
         let result = await this.service.getEnumByType("param-type");
-        this.typeList = result.result || [];
+        this.typeList = result.data || [];
     }
     public async getConvertList() {
         let result = await this.service.getEnumByType("convert-type");
-        this.convertList = result.result || [];
+        this.convertList = result.data || [];
     }
     public getTypeText(type: string) {
         return (this.typeList.find((t: any) => t.name === type) || { text: "" })

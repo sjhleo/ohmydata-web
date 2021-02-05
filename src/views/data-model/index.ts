@@ -68,12 +68,12 @@ export default class DataModel extends Vue {
         this.isLoading = true;
         let res = await this.service.getCategoryTree();
         this.isLoading = false;
-        if (res && !res.hasError) {
+        if (res && res.success) {
             this.dataModelList = CategoryDataUtil.handlerTreeData(
-                res.result,
+                res.data,
                 "name"
             );
-            this.setCategoryTree(res.result);
+            this.setCategoryTree(res.data);
         }
     }
 
@@ -124,8 +124,8 @@ export default class DataModel extends Vue {
         queryModel.condition = this.condition;
         queryModel.paging = this.paging;
         let res = await this.service.dataModel(queryModel);
-        if (res && !res.hasError) {
-            this.data = res.result;
+        if (res && res.success) {
+            this.data = res.data;
             this.paging.totalCount = res.totalCount;
         }
     }
@@ -181,7 +181,7 @@ export default class DataModel extends Vue {
             content: "确认删除该数据模型分组吗？",
             onOk: async () => {
                 let res: any = this.service.deleteCategory(current.id);
-                if (res && !res.hasError) {
+                if (res && res.success) {
                     this.$Message.success("删除数据模型分组成功");
                     this.getTypeList();
                 }

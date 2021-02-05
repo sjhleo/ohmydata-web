@@ -57,8 +57,8 @@ export default class DataSourceList extends Vue {
     public async onClickDataSource(dataSource: any) {
         if (!dataSource.loaded && !dataSource.expand) {
             let result = await this.service.getTables(dataSource.id);
-            // result.result = new Array(2000).fill({}).map(v => Math.random());
-            dataSource.children = (result.result || []).map((v: string) => {
+            // result.data = new Array(2000).fill({}).map(v => Math.random());
+            dataSource.children = (result.data || []).map((v: string) => {
                 return {
                     id: v,
                     title: v,

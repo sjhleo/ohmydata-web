@@ -160,7 +160,7 @@ export default class DataSourceTree extends CommonTree {
     public async loadData(node: any, callback: Function) {
         let result = await this.service.getTables(node.id);
         callback(
-            (result.result || []).map((v: string) => {
+            (result.data || []).map((v: string) => {
                 return {
                     id: v,
                     title: v,

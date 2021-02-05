@@ -45,8 +45,8 @@ export default class DataModelDoc extends CommonView {
     }
     public async init(id: string) {
         let res = await this.service.getMavonDoc(id);
-        if (res && !res.hasError) {
-            this.markDoc = res.result;
+        if (res && res.success) {
+            this.markDoc = res.data;
         }
     }
 }

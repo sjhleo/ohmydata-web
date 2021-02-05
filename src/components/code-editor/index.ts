@@ -82,7 +82,7 @@ export default class CodeEditor extends Vue {
                         this.dataSourceId,
                         keyword
                     );
-                    hintOptions.tables[keyword] = result.result.columns.map(
+                    hintOptions.tables[keyword] = result.data.columns.map(
                         (v: any) => v.name
                     );
                 }

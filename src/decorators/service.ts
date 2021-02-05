@@ -40,7 +40,7 @@ class ResponseHandler {
             try {
                 let result = await method.call(service, ...arg);
                 let msg: string;
-                if (result.hasError) {
+                if (!result.success) {
                     msg = title ? `${title}出错!` : "请求服务失败";
                     console.error(msg);
                     return result;

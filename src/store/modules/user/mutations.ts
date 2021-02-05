@@ -7,14 +7,14 @@ export function save(state: UserState, user: any): void {
     state.name = user.userName;
     state.username = user.username;
     state.token = user.token;
-    Cookies.set("access_token", state.token);
+    Cookies.set("token", state.token);
     sessionStorage.setItem("user", JSON.stringify(state));
 }
 
 export function clear(state: UserState): void {
     state.id = "";
     state.name = "";
-    Cookies.remove("access_token");
+    Cookies.remove("token");
     sessionStorage.removeItem("user");
 }
 export default {

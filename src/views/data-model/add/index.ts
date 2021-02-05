@@ -85,7 +85,7 @@ export default class DataModelAdd extends CommonView {
     public async getCategoryTree() {
         let result = await this.service.getCategoryTree();
         this.catagoryList = CategoryDataUtil.handlerTreeData(
-            result.result || [],
+            result.data || [],
             "name"
         );
     }
@@ -104,8 +104,8 @@ export default class DataModelAdd extends CommonView {
         let result = await this.service.resolveParams({
             expression: this.data.expression
         });
-        if (result && !result.hasError) {
-            this.data.requestParams = result.result || [];
+        if (result && result.success) {
+            this.data.requestParams = result.data || [];
             return Promise.resolve();
         } else {
             return Promise.reject();
@@ -121,7 +121,7 @@ export default class DataModelAdd extends CommonView {
             ...this.data,
             ...{ context: this.context }
         });
-        this.previewJson = JSON.stringify(result.result || [], null, 4);
+        this.previewJson = JSON.stringify(result.data || [], null, 4);
         (this.$refs.resultJson as CodeEditor).setCode(this.previewJson);
     }
 
@@ -130,8 +130,8 @@ export default class DataModelAdd extends CommonView {
             return;
         }
         let result = await this.service.saveDataModel(this.data);
-        if (result && !result.hasError && !this.data.id) {
-            let detail = await this.service.getModelById(result.result);
+        if (result && result.success && !this.data.id) {
+            let detail = await this.service.getModelById(result.data);
             this.data = detail.result;
         }
     }
@@ -147,7 +147,7 @@ export default class DataModelAdd extends CommonView {
         }
         let result = await this.dataSourceService.getTables(this.data.sourceId);
         let obj: any = {};
-        (result.result || []).forEach((tableName: string) => {
+        (result.data || []).forEach((tableName: string) => {
             obj[tableName] = [];
         });
         this.sqlOption = {
@@ -164,7 +164,7 @@ export default class DataModelAdd extends CommonView {
             expression: this.data.expression,
             context: context
         });
-        this.resultData = result.result || [];
+        this.resultData = result.data || [];
         // this.data.responseParams = [];
         // if (this.resultData.length > 0) {
         //     Object.keys(this.resultData[0]).forEach(key => {

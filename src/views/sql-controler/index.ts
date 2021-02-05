@@ -53,7 +53,7 @@ export default class SQLControler extends CommonView {
     public async getTables() {
         let result = await this.dataSourceService.getTables(this.dataSourceId);
         let obj: any = {};
-        (result.result || []).forEach((tableName: string) => {
+        (result.data || []).forEach((tableName: string) => {
             obj[tableName] = [];
         });
         this.sqlOption = {
@@ -84,13 +84,13 @@ export default class SQLControler extends CommonView {
             sql: sql || this.sql,
             paging: this.paging
         });
-        if (!result || result.hasError) {
+        if (!result || !result.success) {
             return this.$Message.error("查询SQL异常");
         }
-        if (!result.result || result.result.length === 0) {
+        if (!result.data || result.data.length === 0) {
             return this.$Message.warning("查询数据为空");
         }
-        this.data = result.result;
+        this.data = result.data;
         this.paging.totalCount = result.totalCount;
         Object.keys(this.data[0]).forEach(key => {
             this.column.push({
