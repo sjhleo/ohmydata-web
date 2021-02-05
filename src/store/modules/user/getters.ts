@@ -7,8 +7,16 @@ export function id(state: State): string {
 export function name(state: State): string {
     return state.name;
 }
+export function info(state: State): any {
+    return {
+        id: state.id,
+        name: state.name,
+        username: state.username
+    };
+}
 
 export default {
     id,
     name,
+    info
 } as GetterTree<State, any>;
