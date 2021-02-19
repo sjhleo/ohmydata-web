@@ -7,12 +7,6 @@
             <i-form-item label="编码：" prop="code">
                 <i-input type="text" placeholder="请输入名称" v-model="data.code"></i-input>
             </i-form-item>
-            <i-form-item label="分组：" prop="categoryId">
-                <!-- <i-select v-model="data.categoryId" placeholder="请选择分组">
-                    <i-option v-for="item in catagoryList" :value="item">{{item}}</i-option>
-                </i-select> -->
-                <u-select-tree :data="catagoryList" :current="data" @on-select="onSelectCategory"></u-select-tree>
-            </i-form-item>
             <i-form-item label="数据源：" prop="sourceId">
                 <i-select v-model="data.sourceId" placeholder="请选择数据源">
                     <i-option v-for="item in dataSourceList" :value="item.id" :key="item.id">{{item.name}}</i-option>

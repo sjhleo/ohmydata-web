@@ -5,7 +5,6 @@ import RunningResult from "@/views/data-model/components/result-modal";
 import autowired from "@/decorators/autowired";
 import DataSourceService from "@/views/data-source/service";
 import DataModelService from "../service";
-import SelectTree from "../components/category-select";
 import { CategoryDataUtil } from "@/views/data-source/tree/common-tree";
 import { DataModel, ReponseParam, RequestParam } from "../entity";
 import ResponseParameterList from "../components/response-parameter-list";
@@ -17,8 +16,7 @@ import { Component, Watch } from "vue-property-decorator";
     components: {
         "u-request-parameter-list": RequestParameterList,
         "u-response-parameter-list": ResponseParameterList,
-        "u-process-result": RunningResult,
-        "u-select-tree": SelectTree
+        "u-process-result": RunningResult
     }
 })
 export default class DataModelAdd extends CommonView {
@@ -40,9 +38,6 @@ export default class DataModelAdd extends CommonView {
             { required: true, message: "请选择分组", trigger: "blur,change" }
         ]
     };
-    // 分组列表
-    public catagoryList: Array<any> = [];
-
     // 数据源列表
     public dataSourceList: Array<any> = [];
     public sqlOption: any = {};
@@ -72,7 +67,6 @@ export default class DataModelAdd extends CommonView {
     }
     public init() {
         this.getDataSourceList();
-        this.getCategoryTree();
     }
     public onSelectCategory(category: any) {
         this.data.categoryId = category.id;
@@ -81,13 +75,6 @@ export default class DataModelAdd extends CommonView {
     public async getDataSourceList() {
         let result = await this.dataSourceService.getDataSourceList();
         this.dataSourceList = result || [];
-    }
-    public async getCategoryTree() {
-        let result = await this.service.getCategoryTree();
-        this.catagoryList = CategoryDataUtil.handlerTreeData(
-            result.data || [],
-            "name"
-        );
     }
     // 运行
     public async onProcess() {

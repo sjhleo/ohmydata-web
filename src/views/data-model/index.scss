@@ -1,42 +1,9 @@
 .data-model {
+    position: relative;
     @include size();
     display: flex;
     overflow: hidden;
     background: white;
-    &-list {
-        @include size();
-        padding: 0.15rem;
-        background: white;
-        border-radius: 2px;
-
-        .header {
-            @include flex(row, space-between, center);
-            position: relative;
-            margin-bottom: 0.1rem;
-
-            p {
-                font-size: 0.16rem;
-                font-weight: 600;
-                color: #2f78f0;
-                &::before {
-                    content: "";
-                    @include size(0.06rem, 0.18rem);
-                    display: inline-block;
-                    background: #4586f1;
-                    border-radius: 0.03rem;
-                    vertical-align: text-bottom;
-                    margin-right: 0.1rem;
-                }
-            }
-
-            .add-data-model {
-                @include size(0.2rem, 0.2rem);
-                @include bg-img("~@/assets/images/data-model/new-folder.png");
-                cursor: pointer;
-            }
-        }
-    }
-
     .modal-list-content {
         @include size();
     }

@@ -91,7 +91,7 @@ export default class RequestParameterList extends Vue {
         this.getTypeList();
     }
     public async getTypeList() {
-        let result = await this.service.getEnumByType("param-type");
+        let result = await this.service.getEnumByType("param-types");
         this.typeList = result.data || [];
     }
     public async getLocationList() {
