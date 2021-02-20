@@ -7,8 +7,8 @@
             <i-form-item label="编码：" prop="code">
                 <i-input type="text" placeholder="请输入名称" v-model="data.code"></i-input>
             </i-form-item>
-            <i-form-item label="数据源：" prop="sourceId">
-                <i-select v-model="data.sourceId" placeholder="请选择数据源">
+            <i-form-item label="数据源：" prop="sourceID">
+                <i-select v-model="data.sourceID" placeholder="请选择数据源">
                     <i-option v-for="item in dataSourceList" :value="item.id" :key="item.id">{{item.name}}</i-option>
                 </i-select>
             </i-form-item>
@@ -51,7 +51,7 @@
                         <i-button size="small" type="success" @click="onProcess">点击运行</i-button>
                     </div>
                     <div class="sql-panel-main">
-                        <g-code-editor ref="sql" :data-source-id="data.sourceId" :option="sqlOption"
+                        <g-code-editor ref="sql" :data-source-id="data.sourceID" :option="sqlOption"
                             :content.sync="data.expression"></g-code-editor>
                     </div>
                 </div>

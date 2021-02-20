@@ -31,7 +31,7 @@ export default class DataModelAdd extends CommonView {
     public validateDataForm = {
         name: [{ required: true, message: "请输入名称", trigger: "blur" }],
         code: [{ required: true, message: "请输入编码", trigger: "blur" }],
-        sourceId: [
+        sourceID: [
             { required: true, message: "请选择数据源", trigger: "blur,change" }
         ],
         categoryId: [
@@ -78,7 +78,7 @@ export default class DataModelAdd extends CommonView {
     }
     // 运行
     public async onProcess() {
-        if (!this.data.sourceId) {
+        if (!this.data.sourceID) {
             return this.$Message.warning("请选择数据源");
         }
         this.resolveParams()
@@ -105,8 +105,8 @@ export default class DataModelAdd extends CommonView {
     public async onProcessPreview() {
         this.previewJson = "";
         let result = await this.service.previewFinalData({
-            ...this.data,
-            ...{ context: this.context }
+            dataset: this.data,
+            params: this.context
         });
         this.previewJson = JSON.stringify(result.data || [], null, 4);
         (this.$refs.resultJson as CodeEditor).setCode(this.previewJson);
@@ -127,12 +127,12 @@ export default class DataModelAdd extends CommonView {
         this.$store.commit("tag/closeCurrent", this.$route);
         this.$router.go(-1);
     }
-    @Watch("data.sourceId")
+    @Watch("data.sourceID")
     public async getTables() {
-        if (!this.data.sourceId) {
+        if (!this.data.sourceID) {
             return;
         }
-        let result = await this.dataSourceService.getTables(this.data.sourceId);
+        let result = await this.dataSourceService.getTables(this.data.sourceID);
         let obj: any = {};
         (result.data || []).forEach((tableName: string) => {
             obj[tableName] = [];
@@ -147,9 +147,8 @@ export default class DataModelAdd extends CommonView {
     }
     public async onRunning(context: any) {
         let result = await this.service.previewData({
-            sourceId: this.data.sourceId,
-            expression: this.data.expression,
-            context: context
+            dataset: this.data,
+            params: context
         });
         this.resultData = result.data || [];
         // this.data.responseParams = [];

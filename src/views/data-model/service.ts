@@ -41,7 +41,7 @@ export default class DataModelService extends CommonService {
         title: "预览表达式数据"
     })
     public previewData(condition: any) {
-        return this._post<any>("/v1/data-set/preview-expression", condition);
+        return this._post<any>("/v1/data-set/preview", condition);
     }
     @serviceHandler({
         title: "预览数据模型最终接口数据"
