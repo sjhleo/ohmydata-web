@@ -77,21 +77,26 @@
             @include flex(row, center, center);
 
             .detail-icon {
+                margin-left: 0.05rem;
                 @include size(0.16rem, 0.16rem);
                 @include bg-img("~@/assets/images/data-model/detail.png");
                 cursor: pointer;
             }
+            .publish-icon {
+                @extend .detail-icon;
+                @include bg-img("~@/assets/images/data-model/confirm.png");
+            }
+            .unpublish-icon {
+                @extend .detail-icon;
+                @include bg-img("~@/assets/images/data-model/cancel.png");
+            }
             .edit-icon {
-                @include size(0.16rem, 0.16rem);
+                @extend .detail-icon;
                 @include bg-img("~@/assets/images/data-model/edit.png");
-                cursor: pointer;
-                margin-left: 0.05rem;
             }
             .delete-icon {
-                @include size(0.16rem, 0.16rem);
+                @extend .detail-icon;
                 @include bg-img("~@/assets/images/data-model/delete.png");
-                cursor: pointer;
-                margin-left: 0.05rem;
             }
         }
     }

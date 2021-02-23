@@ -174,4 +174,24 @@ export default class DataModelList extends Vue {
     public onPageSizeChange(size: number) {
         this.$emit("on-page-size-change", size);
     }
+    public onPublish(row: any, index: number) {
+        this.updatePublish(index, row, true);
+    }
+    public onUnPublish(row: any, index: number) {
+        this.updatePublish(index, row, false);
+    }
+    public async updatePublish(
+        index: number,
+        row: any,
+        publishStatus: boolean
+    ) {
+        let result = await this.service.updatePublishStatus(
+            row.id,
+            publishStatus
+        );
+        if (result && result.success) {
+            row.publishStatus = publishStatus;
+            this.data.splice(index, 1, row);
+        }
+    }
 }

@@ -51,7 +51,13 @@ export default class DataModelService extends CommonService {
     }
 
     @serviceHandler({ title: "获取mavonDoc文档" })
-    public getMavonDoc(id: any) {
+    public getMavonDoc(id: string) {
         return this._get<any>(`/v1/data-set/${id}/doc`);
+    }
+    @serviceHandler({ title: "修改发布状态" })
+    public updatePublishStatus(id: string, publishStatus: boolean) {
+        return this._put<any>(
+            `/v1/data-set/${id}/publish-status/${publishStatus}`
+        );
     }
 }

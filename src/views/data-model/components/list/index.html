@@ -41,9 +41,11 @@
             <template slot="doc" slot-scope="{row}">
                 <a @click="toMavonDoc(row)">查看</a>
             </template>
-            <template slot="actions" slot-scope="{row}">
+            <template slot="actions" slot-scope="{row,index}">
               <!--  <div class="detail-icon" title="详情" @click="onDetail"></div>-->
                 <div class="edit-icon" title="编辑" @click="onEdit(row)"></div>
+                <div class="unpublish-icon" title="取消发布" @click="onUnPublish(row,index)" v-if="row.publishStatus"></div>
+                <div class="publish-icon" title="发布" @click="onPublish(row,index)" v-else></div>
                 <div class="delete-icon" title="删除" @click="onDelete(row)"></div>
             </template>
         </i-table>
