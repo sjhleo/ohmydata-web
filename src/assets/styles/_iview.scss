@@ -12,7 +12,7 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        color: #515A6E;
+        color: #515a6e;
         .ivu-table-header {
             table th {
                 @include font(0.14rem, 600);
@@ -68,6 +68,71 @@
             background-size: 50px 50px;
             width: 50px;
             height: 50px;
+        }
+    }
+}
+/* --------------------------------------------
+         自定义的iview的table组件的样式
+---------------------------------------------*/
+.diy-table {
+    height: 100%;
+    border: 0rem;
+    .ivu-table {
+        color: #4d5867;
+        &:before,
+        &:after {
+            height: 0;
+        }
+        td,
+        th {
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .ivu-table-header {
+            table {
+                border: 1px solid #eee;
+                border-bottom: 0;
+                border-right: 0;
+                tr th {
+                    font-weight: 400;
+                    color: #122236;
+                    background-color: #f8f9fa;
+                    font-size: 0.14rem;
+                    border-bottom: 0;
+                }
+            }
+        }
+        .ivu-table-body {
+            height: calc(100% - 0.4rem);
+            // width: calc(100% + 5px);
+            overflow-y: auto;
+            // overflow-x: auto;
+            table {
+                border-left: 1px solid #eee;
+                border-top: 1px solid #eee;
+                tr td {
+                    font-weight: 400;
+                    color: #4d5867;
+                    font-size: 0.14rem;
+                }
+                tr:nth-child(2n) {
+                    background: #f3f3f4;
+                }
+            }
+        }
+        .ivu-table-tip {
+            height: calc(100% - 0.4rem);
+            position: relative;
+            overflow: hidden;
+            table {
+                height: 100%;
+                td {
+                    border-left: 1px solid #eee;
+                }
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 1px;
         }
     }
 }

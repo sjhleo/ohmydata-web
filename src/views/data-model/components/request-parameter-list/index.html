@@ -6,16 +6,16 @@
                 <span v-else>{{row.name}}</span>
             </div>
             <div slot="type" slot-scope="{row}">
-                <i-select v-if="row.isEdit" v-model="row.type">
-                    <i-option v-for="item in typeList" :value="item.name" :key="item.name">{{item.text}}</i-option>
+                <i-select v-if="row.isEdit" v-model="row.paramType">
+                    <i-option v-for="item in typeList" :value="item.value" :key="item.value">{{item.text}}</i-option>
                 </i-select>
-                <span v-else>{{getTypeText(row.type)}}</span>
+                <span v-else>{{getTypeText(row.paramType)}}</span>
             </div>
             <div slot="location" slot-scope="{row}">
-                <i-select v-if="row.isEdit" v-model="row.location">
-                    <i-option v-for="item in locationList" :value="item.name" :key="item.name">{{item.text}}</i-option>
+                <i-select v-if="row.isEdit" v-model="row.paramLocation">
+                    <i-option v-for="item in locationList" :value="item.value" :key="item.value">{{item.text}}</i-option>
                 </i-select>
-                <span v-else>{{getLocationText(row.location)}}</span>
+                <span v-else>{{getLocationText(row.paramLocation)}}</span>
             </div>
             <div slot="required" slot-scope="{row}">
                 <i-select v-if="row.isEdit" :value="booleanObj[row.required]" @on-change="onChangeRequired($event, row)">

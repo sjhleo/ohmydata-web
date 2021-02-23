@@ -30,8 +30,8 @@ export default class DataModelAdd extends CommonView {
     // 表单验证规则
     public validateDataForm = {
         name: [{ required: true, message: "请输入名称", trigger: "blur" }],
-        code: [{ required: true, message: "请输入编码", trigger: "blur" }],
-        sourceID: [
+        path: [{ required: true, message: "请输入编码", trigger: "blur" }],
+        sourceId: [
             { required: true, message: "请选择数据源", trigger: "blur,change" }
         ],
         categoryId: [
@@ -78,7 +78,7 @@ export default class DataModelAdd extends CommonView {
     }
     // 运行
     public async onProcess() {
-        if (!this.data.sourceID) {
+        if (!this.data.sourceId) {
             return this.$Message.warning("请选择数据源");
         }
         this.resolveParams()
@@ -119,7 +119,7 @@ export default class DataModelAdd extends CommonView {
         let result = await this.service.saveDataModel(this.data);
         if (result && result.success && !this.data.id) {
             let detail = await this.service.getModelById(result.data);
-            this.data = detail.result;
+            this.data = detail.data;
         }
     }
 
@@ -127,12 +127,12 @@ export default class DataModelAdd extends CommonView {
         this.$store.commit("tag/closeCurrent", this.$route);
         this.$router.go(-1);
     }
-    @Watch("data.sourceID")
+    @Watch("data.sourceId")
     public async getTables() {
-        if (!this.data.sourceID) {
+        if (!this.data.sourceId) {
             return;
         }
-        let result = await this.dataSourceService.getTables(this.data.sourceID);
+        let result = await this.dataSourceService.getTables(this.data.sourceId);
         let obj: any = {};
         (result.data || []).forEach((tableName: string) => {
             obj[tableName] = [];

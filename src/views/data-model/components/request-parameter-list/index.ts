@@ -102,12 +102,12 @@ export default class RequestParameterList extends Vue {
         row.required = !!value;
     }
     public getTypeText(type: string) {
-        return (this.typeList.find((t: any) => t.name === type) || { text: "" })
+        return (this.typeList.find((t: any) => t.value === type) || { text: "" })
             .text;
     }
     public getLocationText(location: string) {
         return (
-            this.locationList.find((l: any) => l.name === location) || {
+            this.locationList.find((l: any) => l.value === location) || {
                 text: ""
             }
         ).text;

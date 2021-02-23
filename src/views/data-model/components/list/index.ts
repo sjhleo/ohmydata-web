@@ -94,7 +94,7 @@ export default class DataModelList extends Vue {
     }
 
     public onEmpty() {
-        this.condition.code = "";
+        this.condition.path = "";
         this.condition.name = "";
     }
 

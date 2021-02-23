@@ -10,6 +10,7 @@ export default class DataModelEdit extends DataModelAdd {
         if (this.data.id !== id) {
             this.initData(id);
         }
+        this.init();
     }
     public async initData(id: string = this.data.id) {
         let result = await this.service.getModelById(id);

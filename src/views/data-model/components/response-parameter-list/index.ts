@@ -86,12 +86,12 @@ export default class ResponseParameterList extends Vue {
         this.convertList = result.data || [];
     }
     public getTypeText(type: string) {
-        return (this.typeList.find((t: any) => t.name === type) || { text: "" })
+        return (this.typeList.find((t: any) => t.value === type) || { text: "" })
             .text;
     }
     public getConverTypeText(convertType: string) {
         return (
-            this.convertList.find((c: any) => c.name === convertType) || {
+            this.convertList.find((c: any) => c.value === convertType) || {
                 text: ""
             }
         ).text;
