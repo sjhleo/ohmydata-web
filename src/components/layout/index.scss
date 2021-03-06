@@ -11,8 +11,9 @@
         .title {
             @include size(2rem, 100%);
             position: relative;
+            padding: 0.1rem;
             cursor: pointer;
-            background: #414757;
+            background: white;
             color: white;
             display: flex;
             justify-content: space-between;
@@ -20,12 +21,13 @@
             @include flex(row, center, center);
             .image {
                 @include bg-img("~@/assets/images/logo.png");
-                width: 0.6rem;
-                height: 0.6rem;
-                margin-top: -0.1rem;
+                width: 0.4rem;
+                height: 0.4rem;
+                margin-right: 0.1rem;
             }
             > span {
                 flex: 1;
+                color: #000;
                 font-size: 0.22rem;
                 letter-spacing: 0.02rem;
             }
@@ -67,6 +69,7 @@
 
         .side {
             @include size(2rem, 100%);
+            border-top: 1px solid #eff3f6;
             position: relative;
             .ivu-menu {
                 @include size(100%!important, 100%);

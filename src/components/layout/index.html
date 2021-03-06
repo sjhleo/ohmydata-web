@@ -29,7 +29,7 @@
                 :menu-list="menuList"
                 @on-select="onTurnToPage"
             ></u-side-menu> -->
-            <i-menu :active-name="active" theme="dark">
+            <i-menu :active-name="active"">
                 <i-menu-item v-for="item in menuList" :name="item.name" :to="item">
                     {{item.meta.title}}
                 </i-menu-item>
