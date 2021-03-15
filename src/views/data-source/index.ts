@@ -155,6 +155,7 @@ export default class DataSource extends Vue {
     }
 
     public async onTableNodeSelect(data: any) {
+        this.paging.pageIndex = 1;
         this.currentTabel = data;
         // 清空相关数据
         this.filterData = [];

@@ -4,7 +4,10 @@
             <header>
                 <div class="title">查询面板</div>
             </header>
-            <u-filter :fieldNameList="fieldNameList" @on-filter="onFilter"></u-filter>
+            <u-filter
+                :fieldNameList="fieldNameList"
+                @on-filter="onFilter"
+            ></u-filter>
         </section>
         <section slot="bottom" class="result-content">
             <header>
@@ -19,15 +22,25 @@
                 </div>
             </header>
             <div class="table-content">
-                <i-table ref="table" class="diy-table" :columns="columns" :data="data" :loading="loading">
-                    <!-- <template v-for="item in columns" :slot="item.slot" slot-scope="{ row, index }">
-                        <i-tooltip v-if="row[item.slot]" :content="row[item.slot]" max-width="500" transfer :transfer-class-name="'tooltip-diy'">
-                            <span class="row">{{row[item.slot]}}</span>
-                        </i-tooltip>
-                    </template> -->
+                <i-table
+                    ref="table"
+                    class="diy-table"
+                    :current="paging.pageIndex"
+                    :page-size="paging.pagingSize"
+                    :columns="columns"
+                    :data="data"
+                    :loading="loading"
+                >
                 </i-table>
             </div>
-            <i-page show-elevator show-total show-sizer :total="total" @on-change="onPageChange" @on-page-size-change="onPageSizeChange" />
+            <i-page
+                show-elevator
+                show-total
+                show-sizer
+                :total="total"
+                @on-change="onPageChange"
+                @on-page-size-change="onPageSizeChange"
+            />
         </section>
     </i-split>
 </article>
