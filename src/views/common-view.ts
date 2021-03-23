@@ -3,7 +3,7 @@ import Component from "vue-class-component";
 import Vue from "vue";
 @Component({})
 export default class CommonView extends Vue {
-    public throttleInit: Function = new Function();
+    public throttleInit: Function = new Function()
     public created() {
         this.throttleInit = throttle(this.initFunction, 5000, {
             leading: true,
