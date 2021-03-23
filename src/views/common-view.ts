@@ -11,7 +11,7 @@ export default class CommonView extends Vue {
         });
     }
     public initFunction() {
-        console.info()
+        console.info();
     }
     public mounted() {
         this.throttleInit();

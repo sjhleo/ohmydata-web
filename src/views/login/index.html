@@ -9,18 +9,33 @@
         <div class="v-login-content-form">
             <i-form ref="loginForm" :model="form" :rules="rules">
                 <i-form-item prop="username">
-                    <i-input v-model="form.username" placeholder=" 账号"></i-input>
+                    <i-input
+                        v-model="form.username"
+                        placeholder=" 账号"
+                    ></i-input>
                 </i-form-item>
                 <i-form-item prop="password">
-                    <i-input type="password" v-model="form.password" placeholder=" 密码"></i-input>
+                    <i-input
+                        type="password"
+                        v-model="form.password"
+                        placeholder=" 密码"
+                    ></i-input>
                 </i-form-item>
                 <div class="tool-bar" v-show="false">
                     <i-checkbox v-model="remember">记住账号</i-checkbox>
                     <a>忘记密码</a>
                 </div>
                 <i-form-item>
-                    <i-button @click="onLogin" class="login-btn" type="primary" :loading="isLoading">登 录</i-button>
-                    <i-button @click="onReset" class="login-btn" type="primary">重 置</i-button>
+                    <i-button
+                        @click="onLogin"
+                        class="login-btn"
+                        type="primary"
+                        :loading="isLoading"
+                        >登 录</i-button
+                    >
+                    <i-button @click="onReset" class="login-btn" type="primary"
+                        >重 置</i-button
+                    >
                 </i-form-item>
             </i-form>
         </div>

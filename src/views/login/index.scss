@@ -32,15 +32,15 @@
         background-image: url("~@/assets/images/login/inner-circle.png");
         width: 8.57rem;
         height: 6.95rem;
-        top: calc(1.15rem + .25rem);
-        left: calc(1.72rem + .33rem)
+        top: calc(1.15rem + 0.25rem);
+        left: calc(1.72rem + 0.33rem);
     }
 
     .logo-div {
         background-image: url("~@/assets/images/login/logo-div.png");
         width: 1.64rem;
         height: 1.64rem;
-        top: calc(1.15rem + 2.90rem);
+        top: calc(1.15rem + 2.9rem);
         left: calc(1.72rem + 2.94rem);
         animation: reRotate 10000ms linear infinite;
     }
@@ -55,24 +55,24 @@
 
     .title {
         width: 5.62rem;
-        height: .41rem;
+        height: 0.41rem;
         top: 1.92rem;
         left: 11.2rem;
-        font-size: .37rem;
+        font-size: 0.37rem;
         font-weight: 600;
-        letter-spacing: .04rem;
+        letter-spacing: 0.04rem;
         color: #026497;
-        line-height: .44rem;
+        line-height: 0.44rem;
         text-align: center;
         text-shadow: -2px 5px 2px rgba(2, 100, 151, 1);
-        -webkit-text-stroke: 1px #00B1FF;
+        -webkit-text-stroke: 1px #00b1ff;
     }
 
     .item-div {
         width: 3.06rem;
-        height: 1.60rem;
+        height: 1.6rem;
         min-width: 260px;
-        padding: .2rem .05rem .2rem 0;
+        padding: 0.2rem 0.05rem 0.2rem 0;
         top: calc(1.15rem + 6.56rem);
         left: calc(1.72rem + 6.19rem);
         background-image: url("~@/assets/images/login/item-div.png");
@@ -80,11 +80,11 @@
         .items {
             display: inline-block;
             width: 49%;
-            padding-left: .51rem;
+            padding-left: 0.51rem;
 
-            >li {
-                line-height: .3rem;
-                color: #02A4EC;
+            > li {
+                line-height: 0.3rem;
+                color: #02a4ec;
             }
         }
     }
@@ -107,7 +107,7 @@
         background-image: url("~@/assets/images/login/login-form.png");
         background-size: 100% 100%;
         text-align: center;
-        padding: .5rem 1.085rem 0;
+        padding: 0.5rem 1.085rem 0;
 
         &-form {
             display: block;
@@ -115,11 +115,11 @@
             height: 100%;
             text-align: center;
             letter-spacing: 4px;
-            color: #02A4EC;
+            color: #02a4ec;
             background-color: transparent !important;
 
             .ivu-form-item {
-                margin: .35rem 0 .05rem;
+                margin: 0.35rem 0 0.05rem;
 
                 .ivu-form-item-error-tip {
                     display: block;
@@ -135,14 +135,14 @@
             .ivu-input {
                 background-color: transparent !important;
                 width: 2.78rem;
-                height: .44rem;
-                border: 1px solid #02A4EC;
+                height: 0.44rem;
+                border: 1px solid #02a4ec;
                 border-radius: 2px;
-                color: #02A4EC;
-                font-size: .14rem;
+                color: #02a4ec;
+                font-size: 0.14rem;
 
                 &::placeholder {
-                    color: #02A4EC;
+                    color: #02a4ec;
                 }
             }
 
@@ -151,24 +151,24 @@
                 justify-content: space-between;
 
                 .ivu-checkbox-wrapper {
-                    margin-right: .48rem;
+                    margin-right: 0.48rem;
 
                     .ivu-checkbox-inner {
                         background-color: transparent !important;
-                        border: 1px solid #02A4EC;
+                        border: 1px solid #02a4ec;
                     }
                 }
             }
 
             .login-btn {
                 width: 1.2rem;
-                height: .44rem;
-                line-height: .44rem;
+                height: 0.44rem;
+                line-height: 0.44rem;
                 padding: 0 !important;
                 background-color: transparent !important;
                 background-image: url("~@/assets/images/login/submit.png");
                 background-size: 100% 100%;
-                color: #02A4EC;
+                color: #02a4ec;
             }
         }
     }
@@ -176,18 +176,18 @@
     .progress {
         position: absolute;
         width: 3.2rem;
-        height: .25rem;
+        height: 0.25rem;
         top: 2.67rem;
         left: 12.7rem;
         display: flex;
 
         .progressWarpper {
             display: flex;
-            width: .24rem;
+            width: 0.24rem;
 
             .progressIcon {
-                width: .12rem;
-                height: .21rem;
+                width: 0.12rem;
+                height: 0.21rem;
                 background-image: url("~@/assets/images/login/progress.png");
                 background-repeat: no-repeat;
                 background-size: 100% 100%;
@@ -223,7 +223,7 @@
         }
 
         .inner-circle {
-            top: calc(50px + .25rem);
+            top: calc(50px + 0.25rem);
         }
 
         .title {
@@ -249,14 +249,14 @@
         .progress {
             position: absolute;
             width: 3.2rem;
-            height: .2rem;
+            height: 0.2rem;
             top: 2.67rem;
             left: 12.6rem;
 
             .progressWarpper {
                 .progressIcon {
-                    width: .12rem;
-                    height: .21rem;
+                    width: 0.12rem;
+                    height: 0.21rem;
                     background-image: url("~@/assets/images/login/progress.png");
                     background-repeat: no-repeat;
                 }
