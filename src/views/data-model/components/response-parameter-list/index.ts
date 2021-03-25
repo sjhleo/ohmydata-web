@@ -86,8 +86,9 @@ export default class ResponseParameterList extends Vue {
         this.convertList = result.data || [];
     }
     public getTypeText(type: string) {
-        return (this.typeList.find((t: any) => t.value === type) || { text: "" })
-            .text;
+        return (
+            this.typeList.find((t: any) => t.value === type) || { text: "" }
+        ).text;
     }
     public getConverTypeText(convertType: string) {
         return (

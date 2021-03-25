@@ -46,7 +46,7 @@ export default class CodeEditor extends Vue {
                     // theme: theme,
                     autofocus: true,
                     extraKeys: {
-                        "Enter": "autocomplete",
+                        Enter: "autocomplete",
                         "Ctrl+Z": "redo",
                         "Alt-Enter": "newlineAndIndent"
                     },

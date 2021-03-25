@@ -45,7 +45,10 @@ export default class DataSourceService extends CommonService {
 
     @serviceHandler({ title: "分页查询", dataName: "data" })
     public getTableData(params: any, data: object = {}): Promise<any> {
-        return this._post<any>(`/v1/data-source/${params.id}/data?name=${params.name}`, data);
+        return this._post<any>(
+            `/v1/data-source/${params.id}/data?name=${params.name}`,
+            data
+        );
     }
 
     public export(params: any, data: object = {}): Promise<any> {

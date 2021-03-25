@@ -9,7 +9,8 @@ export class DataModel {
     // 服务源
     public sourceId: string = "";
     // 表达式（SQL模板）
-    public expression: string = "select * from com_login_log where ip='{{.IP}}'";
+    public expression: string =
+        "select * from com_login_log where ip='{{.IP}}'";
     // 是否开启缓存
     public enableCache: boolean = false;
     // 过期时间

@@ -6,15 +6,27 @@
         <div class="condition">
             <div class="input-item">
                 <span>编码：</span>
-                <i-input placeholder="请输入编码" v-model="condition.path" @on-enter="onSearch"></i-input>
+                <i-input
+                    placeholder="请输入编码"
+                    v-model="condition.path"
+                    @on-enter="onSearch"
+                ></i-input>
             </div>
             <div class="input-item">
                 <span>名称：</span>
-                <i-input placeholder="请输入名称" v-model="condition.name" @on-enter="onSearch"></i-input>
+                <i-input
+                    placeholder="请输入名称"
+                    v-model="condition.name"
+                    @on-enter="onSearch"
+                ></i-input>
             </div>
             <div class="search-btn">
-                <i-button class="add-btn" type="primary" @click="onSearch">查询</i-button>
-                <i-button class="add-btn" type="primary" @click="onEmpty" ghost>重置</i-button>
+                <i-button class="add-btn" type="primary" @click="onSearch"
+                    >查询</i-button
+                >
+                <i-button class="add-btn" type="primary" @click="onEmpty" ghost
+                    >重置</i-button
+                >
             </div>
         </div>
     </header>
@@ -30,28 +42,54 @@
                     <div class="add-icon"></div>
                     <span>新增</span>
                 </div>
-                <div class="batch-delete-model"  @click="onBatchDelete">
+                <div class="batch-delete-model" @click="onBatchDelete">
                     <div class="batch-delete-icon"></div>
                     <span>批量删除</span>
                 </div>
             </div>
         </div>
 
-        <i-table class="diy-table" :columns="columns" :data="data" @on-selection-change="onSelected">
+        <i-table
+            class="diy-table"
+            :columns="columns"
+            :data="data"
+            @on-selection-change="onSelected"
+        >
             <template slot="doc" slot-scope="{row}">
                 <a @click="toMavonDoc(row)">查看</a>
             </template>
             <template slot="actions" slot-scope="{row,index}">
-              <!--  <div class="detail-icon" title="详情" @click="onDetail"></div>-->
+                <!--  <div class="detail-icon" title="详情" @click="onDetail"></div>-->
                 <div class="edit-icon" title="编辑" @click="onEdit(row)"></div>
-                <div class="unpublish-icon" title="取消发布" @click="onUnPublish(row,index)" v-if="row.publishStatus"></div>
-                <div class="publish-icon" title="发布" @click="onPublish(row,index)" v-else></div>
-                <div class="delete-icon" title="删除" @click="onDelete(row)"></div>
+                <div
+                    class="unpublish-icon"
+                    title="取消发布"
+                    @click="onUnPublish(row,index)"
+                    v-if="row.publishStatus"
+                ></div>
+                <div
+                    class="publish-icon"
+                    title="发布"
+                    @click="onPublish(row,index)"
+                    v-else
+                ></div>
+                <div
+                    class="delete-icon"
+                    title="删除"
+                    @click="onDelete(row)"
+                ></div>
             </template>
         </i-table>
     </main>
     <div class="pagination">
-        <i-page :total="page.totalCount"  @on-change="onPageIndexChange" @on-page-size-change="onPageSizeChange" show-elevator show-total show-sizer>
+        <i-page
+            :total="page.totalCount"
+            @on-change="onPageIndexChange"
+            @on-page-size-change="onPageSizeChange"
+            show-elevator
+            show-total
+            show-sizer
+        >
         </i-page>
     </div>
 </div>

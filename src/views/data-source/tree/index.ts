@@ -88,7 +88,7 @@ export default class DataSourceTree extends CommonTree {
                                   }
                               },
                               props: {
-                                  "transfer": true,
+                                  transfer: true,
                                   "transfer-class-name": "oprate-menu"
                               }
                           },

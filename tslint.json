@@ -15,6 +15,7 @@
         "only-arrow-functions": false,
         "no-shadowed-variable": false,
         "object-literal-shorthand": false,
+        "object-literal-key-quotes":false,
         "array-type": false,
         "ban-types": false,
         "max-classes-per-file": false,

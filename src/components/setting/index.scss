@@ -1,18 +1,18 @@
 @charset "UTF-8";
 
 .setting-wrapper {
-  position: relative;
-  padding-right: 0.15rem;
+    position: relative;
+    padding-right: 0.15rem;
 }
 
 .skin-modal-wrapper {
-  .ivu-modal-header {
-    border-bottom: none;
-  }
-  // .ivu-modal-body {
-  //   .skin-content {}
-  // }
-  .ivu-modal-footer {
-    border-top: none;
-  }
+    .ivu-modal-header {
+        border-bottom: none;
+    }
+    // .ivu-modal-body {
+    //   .skin-content {}
+    // }
+    .ivu-modal-footer {
+        border-top: none;
+    }
 }

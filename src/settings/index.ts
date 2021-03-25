@@ -4,7 +4,7 @@
 export const commonSetting = {
     ...{
         // 后端地址
-        baseUrl: "http://47.111.102.84:9090",
+        baseUrl: "http://47.111.102.84:9090"
     },
     ...window.commonSetting
 };

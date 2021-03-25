@@ -350,9 +350,6 @@ export class Type {
      * @returns string
      */
     private static getTypeString(value: any): string {
-        return Object.prototype.toString
-            .call(value)
-            .slice(8, -1)
-            .toLowerCase();
+        return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
     }
 }

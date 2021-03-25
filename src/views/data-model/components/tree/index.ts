@@ -45,11 +45,11 @@ export default class DataModelTree extends CommonTree {
                                 on: {
                                     click: isLeaf
                                         ? (e: Event) => {
-                                            this.clickLeafNode(e, data);
-                                        }
+                                              this.clickLeafNode(e, data);
+                                          }
                                         : (e: Event) => {
-                                            this.clickParentNode(e, data);
-                                        }
+                                              this.clickParentNode(e, data);
+                                          }
                                 }
                             },
                             data.title
@@ -58,67 +58,67 @@ export default class DataModelTree extends CommonTree {
                 ),
                 isLeaf
                     ? [
-                        h("i-icon", {
-                            attrs: {
-                                title: "查看"
-                            },
-                            class: "oprate-icon",
-                            props: { type: "view" },
-                            on: {
-                                click: (e: Event) => {
-                                    this.onHandleTable(e, "view", data);
-                                }
-                            }
-                        })
-                    ]
+                          h("i-icon", {
+                              attrs: {
+                                  title: "查看"
+                              },
+                              class: "oprate-icon",
+                              props: { type: "view" },
+                              on: {
+                                  click: (e: Event) => {
+                                      this.onHandleTable(e, "view", data);
+                                  }
+                              }
+                          })
+                      ]
                     : h(
-                    "i-dropdown",
-                    {
-                        on: {
-                            "on-click": (name: string) => {
-                                this.onHandleDatabase(name, data);
-                            }
-                        },
-                        props: {
-                            "transfer": true,
-                            "transfer-class-name": "oprate-menu"
-                        }
-                    },
-                    [
-                        h("i-icon", {
-                            class: "oprate-icon",
-                            props: { type: "ios-more" }
-                        }),
-                        h(
-                            "i-dropdown-menu",
-                            {
-                                slot: "list"
-                            },
-                            [
-                                h(
-                                    "i-dropdown-item",
-                                    { props: { name: "edit" } },
-                                    [
-                                        h("i-icon", {
-                                            props: { type: "edit" }
-                                        }),
-                                        h("span", {}, "编辑分类")
-                                    ]
-                                ),
-                                h(
-                                    "i-dropdown-item",
-                                    { props: { name: "delete" } },
-                                    [
-                                        h("i-icon", {
-                                            props: { type: "delete" }
-                                        }),
-                                        h("span", {}, "删除分类")
-                                    ]
-                                )
-                            ]
-                        )
-                    ]
-                )
+                          "i-dropdown",
+                          {
+                              on: {
+                                  "on-click": (name: string) => {
+                                      this.onHandleDatabase(name, data);
+                                  }
+                              },
+                              props: {
+                                  transfer: true,
+                                  "transfer-class-name": "oprate-menu"
+                              }
+                          },
+                          [
+                              h("i-icon", {
+                                  class: "oprate-icon",
+                                  props: { type: "ios-more" }
+                              }),
+                              h(
+                                  "i-dropdown-menu",
+                                  {
+                                      slot: "list"
+                                  },
+                                  [
+                                      h(
+                                          "i-dropdown-item",
+                                          { props: { name: "edit" } },
+                                          [
+                                              h("i-icon", {
+                                                  props: { type: "edit" }
+                                              }),
+                                              h("span", {}, "编辑分类")
+                                          ]
+                                      ),
+                                      h(
+                                          "i-dropdown-item",
+                                          { props: { name: "delete" } },
+                                          [
+                                              h("i-icon", {
+                                                  props: { type: "delete" }
+                                              }),
+                                              h("span", {}, "删除分类")
+                                          ]
+                                      )
+                                  ]
+                              )
+                          ]
+                      )
             ]
         );
     }

@@ -5,7 +5,8 @@
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "check": "http-server ./dist -a 127.0.0.1 -p 5050"
+        "check": "http-server ./dist -a 127.0.0.1 -p 5050",
+        "prettier": "prettier --write src/**/*.{ts,tsx,html,scss,js}"
     },
     "husky": {
         "hooks": {

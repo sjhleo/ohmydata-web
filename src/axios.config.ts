@@ -19,7 +19,8 @@ export default function axiosConfig() {
             return res;
         },
         e => {
-            if (e.toString().indexOf("401") !== -1) window.location.href = "/#/login";
+            if (e.toString().indexOf("401") !== -1)
+                window.location.href = "/#/login";
             // Do something with response error
             return Promise.reject(e);
         }

@@ -29,7 +29,7 @@ export default class RunningResult extends Vue {
     }
     public context: any = {};
 
-    @PropSync("visible", { default:  false })
+    @PropSync("visible", { default: false })
     public showResult!: boolean;
 
     public onProcess() {

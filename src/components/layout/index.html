@@ -29,17 +29,30 @@
                 :menu-list="menuList"
                 @on-select="onTurnToPage"
             ></u-side-menu> -->
-            <i-menu :active-name="active"">
-                <i-menu-item v-for="item in menuList" :name="item.name" :to="item">
+            <i-menu :active-name="active">
+                <i-menu-item
+                    v-for="item in menuList"
+                    :name="item.name"
+                    :to="item"
+                >
                     {{item.meta.title}}
                 </i-menu-item>
             </i-menu>
         </div>
         <div class="content">
             <header>
-                <div v-for="(tag,index) in tagList" :key="tag.id" @click="onClickTag(tag)" :class="{'active': activeTagId === tag.id}">
+                <div
+                    v-for="(tag,index) in tagList"
+                    :key="tag.id"
+                    @click="onClickTag(tag)"
+                    :class="{'active': activeTagId === tag.id}"
+                >
                     <span>{{tag.route.meta.title}}</span>
-                    <i-icon v-if="tagList.length !== 1 || tag.route.name !=='data-source-list'" type="ios-close" @click.stop="onCloseTag(tag, index)"/>
+                    <i-icon
+                        v-if="tagList.length !== 1 || tag.route.name !=='data-source-list'"
+                        type="ios-close"
+                        @click.stop="onCloseTag(tag, index)"
+                    />
                 </div>
             </header>
             <keep-alive :include="cacheList">

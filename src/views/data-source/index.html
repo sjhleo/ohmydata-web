@@ -22,9 +22,7 @@
             </u-list>
         </section>
         <section v-if="message" slot="right" class="info">
-            <div class="info-content">
-                {{message && message || ""}}
-            </div>
+            <div class="info-content">{{message && message || ""}}</div>
         </section>
         <section v-else slot="right" class="table-view-content">
             <u-table-view

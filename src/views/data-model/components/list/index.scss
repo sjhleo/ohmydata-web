@@ -6,8 +6,8 @@
     padding: 0.15rem;
     overflow: hidden;
 
-    >header {
-        @include flex(column,flex-start, flex-start);
+    > header {
+        @include flex(column, flex-start, flex-start);
         width: 100%;
         margin-bottom: 0.1rem;
 
@@ -67,11 +67,12 @@
                     .batch-delete-icon {
                         margin-right: 0.05rem;
                         @include size(0.16rem, 0.16rem);
-                        @include bg-img("~@/assets/images/data-model/batch-delete.png");
+                        @include bg-img(
+                            "~@/assets/images/data-model/batch-delete.png"
+                        );
                     }
                 }
             }
-
         }
         .ivu-table-cell-slot {
             @include flex(row, center, center);

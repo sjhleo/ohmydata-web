@@ -1,35 +1,26 @@
-@keyframes v-error-500-icon-animation
-{
-    0%
-    {
+@keyframes v-error-500-icon-animation {
+    0% {
         transform: rotateZ(0deg);
     }
-    20%
-    {
+    20% {
         transform: rotateZ(-10deg);
     }
-    40%
-    {
+    40% {
         transform: rotateZ(5deg);
     }
-    60%
-    {
+    60% {
         transform: rotateZ(-5deg);
     }
-    80%
-    {
+    80% {
         transform: rotateZ(10deg);
     }
-    100%
-    {
+    100% {
         transform: rotateZ(0deg);
     }
 }
 
-.v-error-500
-{
-    &-icon
-    {
+.v-error-500 {
+    &-icon {
         position: relative;
         display: inline-block;
         width: 170px;
@@ -38,9 +29,8 @@
         border-radius: 50%;
         border: 20px solid #ed3f14;
         color: #ed3f14;
-        
-        i
-        {
+
+        i {
             position: absolute;
             display: inline-block;
             left: 10px;

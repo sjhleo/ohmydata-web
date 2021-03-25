@@ -1,12 +1,20 @@
 <div class="v-running-result-container">
-    <i-modal title="运行结果" v-model="showResult" class-name="panelShowModal" footer-hide>
+    <i-modal
+        title="运行结果"
+        v-model="showResult"
+        class-name="panelShowModal"
+        footer-hide
+    >
         <header>
             <p>参数</p>
         </header>
         <section class="params">
             <div class="param-item" v-for="param in params" :key="param.name">
                 <span>{{param.name}}：</span>
-                <i-input placeholder="请输入参数值" v-model="context[param.name]"></i-input>
+                <i-input
+                    placeholder="请输入参数值"
+                    v-model="context[param.name]"
+                ></i-input>
             </div>
         </section>
 

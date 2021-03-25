@@ -1,39 +1,29 @@
-@keyframes v-error-403-icon-animation
-{
-    0%
-    {
+@keyframes v-error-403-icon-animation {
+    0% {
         transform: rotateZ(0deg);
     }
-    40%
-    {
+    40% {
         transform: rotateZ(-20deg);
     }
-    45%
-    {
+    45% {
         transform: rotateZ(-15deg);
     }
-    50%
-    {
+    50% {
         transform: rotateZ(-20deg);
     }
-    55%
-    {
+    55% {
         transform: rotateZ(-15deg);
     }
-    60%
-    {
+    60% {
         transform: rotateZ(-20deg);
     }
-    100%
-    {
+    100% {
         transform: rotateZ(0deg);
     }
 }
 
-.v-error-403
-{
-    &-icon-1
-    {
+.v-error-403 {
+    &-icon-1 {
         position: relative;
         display: inline-block;
         width: 170px;
@@ -43,19 +33,17 @@
         color: #ed3f14;
         margin-right: 10px;
 
-        i
-        {
+        i {
             position: absolute;
             left: 50%;
             top: 50%;
             display: inline-block;
             font-size: 120px;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
     }
-    
-    &-icon-2
-    {
+
+    &-icon-2 {
         position: relative;
         display: inline-block;
         width: 100px;
@@ -63,13 +51,12 @@
         margin-right: 10px;
         border-radius: 50%;
 
-        i
-        {
+        i {
             position: absolute;
             left: 20px;
             display: inline-block;
             font-size: 190px;
-            transform: translate(-50%,-60%);
+            transform: translate(-50%, -60%);
             transform-origin: center bottom;
             animation: v-error-403-icon-animation 2.8s ease 0s infinite;
         }

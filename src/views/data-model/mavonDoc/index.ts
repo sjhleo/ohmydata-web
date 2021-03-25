@@ -33,7 +33,6 @@ export default class DataModelDoc extends CommonView {
         iframe.contentDocument.write(render);
         iframe.contentDocument.close();
         iframe.contentWindow.print();
-
     }
 
     public initFunction() {

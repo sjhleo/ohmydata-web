@@ -5,7 +5,7 @@ import "./index.scss";
     template: require("./index.html")
 })
 export default class FilterComponent extends Vue {
-    @Prop({default: []})
+    @Prop({ default: [] })
     public fieldNameList!: Array<any>;
 
     public data: Array<any> = [];
@@ -47,7 +47,10 @@ export default class FilterComponent extends Vue {
 
     public onAddCondition(index: number) {
         // debugger;
-        index = index < this.fieldNameList.length - 1 ? index + 1 : this.fieldNameList.length - 1;
+        index =
+            index < this.fieldNameList.length - 1
+                ? index + 1
+                : this.fieldNameList.length - 1;
         this.data.push({
             select: true,
             value: "",

@@ -1,5 +1,12 @@
 import "./index.scss";
-import { Component, PropSync, Vue, Model, Prop, Watch } from "vue-property-decorator";
+import {
+    Component,
+    PropSync,
+    Vue,
+    Model,
+    Prop,
+    Watch
+} from "vue-property-decorator";
 import DataSourceService from "../service";
 import autowired from "@/decorators/autowired";
 @Component({
@@ -39,12 +46,26 @@ export default class AddlDataBaseComponent extends Vue {
 
     public rules: any = {
         name: [
-            { required: true, message: "数据源名称不能为空", trigger: "blur,change" }
+            {
+                required: true,
+                message: "数据源名称不能为空",
+                trigger: "blur,change"
+            }
         ],
         url: [
-            { required: true, message: "数据源链接不能为空", trigger: "blur,change" }
+            {
+                required: true,
+                message: "数据源链接不能为空",
+                trigger: "blur,change"
+            }
         ],
-        type: [{ required: true, message: "数据源类型不能为空", trigger: "blur,change" }]
+        type: [
+            {
+                required: true,
+                message: "数据源类型不能为空",
+                trigger: "blur,change"
+            }
+        ]
         // username: [{ required: true, message: "用户名不能为空", trigger: "blur" }],
         // password: [{ required: true, message: "密码不能为空", trigger: "blur" }]
     };
