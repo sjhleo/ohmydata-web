@@ -35,14 +35,14 @@ ddcat 最终目的是实现数据库到接口的直接转换。
 ### 1.数据源配置
 
 对于目前常用的几种数据库，ddcat 几乎都能做到无差别的对接，不同类型的数据源都是使用 mysql 的查询语句进行操作，后台会自动转换为对应的查询语句。在进行接口 sql 配置之前，首先要完成数据源的配置，按照下图示例的格式进行配置。
-![image.png](http://www.egova.top:1314/files/attachment/images/png/2020122920712.png)
+![image.png](./images/1.png)
 连接数据源后，会看到一个类似 Navicat 的界面，可以在 sql 面板执行相关查询语句。
-![image.png](http://www.egova.top:1314/files/attachment/images/png/2020123048314.png)
+![image.png](./images/2.png)
 
 ### 2.数据模型
 
 具体的数据模型列表界面如下图，一般会新建列表目录对接口进行归类。
-![image.png](http://www.egova.top:1314/files/attachment/images/png/2020123044898.png)
+![image.png](./images/3.png)
 
 新增数据模型， 需要指定相关参数：
 
@@ -59,10 +59,10 @@ ddcat 最终目的是实现数据库到接口的直接转换。
 
 -   表达式-sql 语句：
     查询的原始 sql 语句，此处不建议写太复杂的 sql 语句，一般做法是在源数据库建视图，方便接口转换、条件查询等操作，以及方便后期维护。
-    ![image.png](http://www.egova.top:1314/files/attachment/images/png/2020123078865.png)
+    ![image.png](./images/4.png)
 
 sql 面板 sql 语句完成后，点击执行，会根据语句在右侧生成请求参数、响应参数的列表。此处还可以对查询的结果进行重命名、公式、脚本转换。本文后续会进行更新详细说明。
-![image.png](http://www.egova.top:1314/files/attachment/images/png/2020123049515.png)
+![image.png](./images/5.png)
 
 ### 3. 数据模型编辑
 
@@ -140,7 +140,7 @@ select * from com_user
 
 （1）定义
 sql 面板执行语句中，带有值变量 ${value}的 value 参数，在点击执行后会自动显示到此模块。每次执行后，需要配置参数类型、是否必须、默认值。
-![image.png](http://www.egova.top:1314/files/attachment/images/png/2020123053272.png)
+![image.png](./images/6.png)
 
 #### 3. 响应参数
 
@@ -278,7 +278,7 @@ if(page.getData() != null && page.getData().size() > 0){
 ```
 
 即默认 result 返回的是数组对象格式。如果需要返回单个对象，则必须使用 java 代码获取列表的第一 个对象返回。
-![image.png](http://www.egova.top:1314/files/attachment/images/png/2020123029172.png)
+![image.png](./images/7.png)
 
 page 即为后台 sql 查询后的结果。为了方便理解，下图展示了 page 对应的后台实体：
 
